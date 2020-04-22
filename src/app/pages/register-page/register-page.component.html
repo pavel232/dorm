@@ -1,0 +1,23 @@
+<form class="register">
+  <h3>Register new user</h3>
+
+  <label>Login
+    <input name="login" required
+
+    >
+  </label>
+
+  <label>Password
+    <input type="password" name="password" required
+
+    >
+  </label>
+
+  <label>Confirm password {{login}}
+    <input type="password" required
+      [(ngModel)]="confirm"
+    >
+  </label>
+
+  <button type="submit">Register</button>
+</form>
