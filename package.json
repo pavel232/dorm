@@ -5,9 +5,24 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "clean:dist": "rimraf dist",
     "lint": "ng lint",
+    "lint:fix": "ng lint --fix=true",
+    "test": "ng test",
+    "format:write": "prettier src/**/*.{ts,json,md,less} --write",
+    "format:test": "prettier src/**/*.{ts,json,md,less} --list-different",
     "e2e": "ng e2e"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commit-message-validator",
+      "pre-push": "npm run build && npm run clean:dist"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,json,md,less}": "prettier --write",
+    "*.{ts}": "npm run lint"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +49,8 @@
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
+    "commit-message-validator": "^0.1.11",
+    "husky": "^4.2.3",
     "karma": "~4.1.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
@@ -42,6 +59,14 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
+    "prettier": "1.19.1",
+    "lint-staged": "^10.0.8",
     "typescript": "~3.5.3"
+  },
+  "config": {
+    "commit-message-validator": {
+      "pattern": "^DORM-(XXX|\\d{1,5}) (build|ci|chore|docs|feat|fix|perf|refactor|revert|style|test) ?\\((\\*|.{1,20})\\): ",
+      "errorMessage": "Commit message does not satisfy the requirements."
+    }
   }
 }
