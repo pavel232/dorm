@@ -1,7 +1,9 @@
 <h3>Students:</h3>
 
 <ul>
-  <li>
-
+  <li *ngFor="let student of students">
+    <p>{{student.firstname}} {{student.lastname}}</p>
+    <p>{{student.date}}</p>
+    <p>Room {{student.studroom.Room}}, Floor {{student.studfloor.Floor}}</p>
   </li>
 </ul>

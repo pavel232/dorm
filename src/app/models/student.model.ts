@@ -1,19 +1,19 @@
 export interface Student {
   id: number;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   date: string;
   uuid: number;
-  studRoom: StudRoom;
-  studFloor: StudFloor;
+  studroom: StudRoom;
+  studfloor: StudFloor;
 }
 
 interface StudRoom {
   id: number;
-  room: number;
+  Room: number;
 }
 
 interface StudFloor {
   id: number;
-  floor: number;
+  Floor: number;
 }

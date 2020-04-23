@@ -1,23 +1,29 @@
-<form class="register">
+<form class="register" (ngSubmit)="onSubmit()" #signUpForm="ngForm">
   <h3>Register new user</h3>
 
   <label>Login
     <input name="login" required
-
+      [(ngModel)]="login"
     >
   </label>
 
   <label>Password
     <input type="password" name="password" required
-
+      [(ngModel)]="password"
     >
   </label>
 
-  <label>Confirm password 
-    <input type="password" required
-      [(ngModel)="confirm"
+  <label>Confirm password
+    <input type="password" name="confirm" required
+      [(ngModel)]="confirm"
     >
   </label>
 
-  <button type="submit">Register</button>
+  <button type="submit"
+    [disabled]="signUpForm.form.invalid"
+  >Register</button>
+
+  <p
+    [hidden]="isConfirm"
+  >Passwords do not match!</p>
 </form>
