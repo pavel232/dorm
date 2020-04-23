@@ -7,9 +7,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { FormsModule } from '@angular/forms';
-
+import { SharedModule } from './shared/shared-module.module';
+import { CoreModule } from './core/core-module.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -17,15 +18,10 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     MainPageComponent,
     DetailPageComponent,
-    NotFoundComponent,
-    RegisterPageComponent
+    NotFoundComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, SharedModule, CoreModule, LoginModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
