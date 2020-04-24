@@ -11,6 +11,14 @@ h3 {
 .register {
   width: 320px;
   margin-top: 7vh;
+
+  &__container {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .buttons {

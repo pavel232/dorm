@@ -1,0 +1,43 @@
+@import '../../../styles/variables.scss';
+
+.google-wrapper {
+    position: relative;
+    width: fit-content;
+  
+    &__label {
+      position: absolute;
+      left: 8px;
+      pointer-events: none;
+      padding: 0 4px;
+      z-index: 1;
+      transition: all 0.2s;
+    }
+  
+    .border {
+      font-size: $font-s;
+      line-height: 1.33;
+      transform: translateY(-8px);
+      color: $color-grey;
+  
+      &::before {
+        //100% width of the parent element + 8px white space (4px on left and right side)
+        width: calc(100% + 6px);
+        content: ' ';
+        position: absolute;
+        height: 1px;
+        z-index: -1;
+        background-color: rgba($color-white, .5);
+        top: 8px;
+        left: -4px;
+      }
+    }
+  
+    .placeholder {
+      font-size: $font-m;
+      line-height: 1.2;
+      transform: translateY(10px);
+      color: grey;
+      pointer-events: none;
+      background-color: transparent;
+    }
+  }

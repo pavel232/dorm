@@ -1,23 +1,13 @@
 <form class="register wrapper" (ngSubmit)="onSubmit()" #signUpForm="ngForm">
   <h3>{{pageName}}</h3>
 
-  <label>Username
-    <input name="login" required
-      [(ngModel)]="login"
-    >
-  </label>
+<div class="register__container">
+  <app-google-input class="register__input-field" [placeholder]="'Login...'" [label]="'login'" (valueChanged)="changedLogin($event)"></app-google-input>
+  <app-google-input class="register__input-field" [placeholder]="'Password...'" [label]="'password'" (valueChanged)="changedPassword($event)"></app-google-input>
+  <app-google-input class="register__input-field" [placeholder]="'Repeat password...'" [label]="'password'" (valueChanged)="changedRepeatPassword($event)"></app-google-input>
+</div>
 
-  <label>Password
-    <input type="password" name="password" required
-      [(ngModel)]="password"
-    >
-  </label>
 
-  <label *ngIf="!pageState">Confirm password
-    <input type="password" name="confirm" required
-      [(ngModel)]="confirm"
-    >
-  </label>
 
   <p
     [hidden]="isConfirm"
@@ -34,3 +24,5 @@
     >Register</button>
   </div>
 </form>
+
+

@@ -1,0 +1,11 @@
+<div class="google-wrapper"
+    (click)="onContainerFocusIn()"
+    (focusout)="onContainerFocusOut()"
+    >
+    <div class="google-wrapper__label"
+    [ngClass]="isElementActive ? 'border' : 'placeholder'"
+    >
+    {{labelContent}}
+    </div>
+    <ng-content></ng-content>   
+</div>

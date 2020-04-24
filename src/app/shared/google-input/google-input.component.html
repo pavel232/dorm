@@ -1,0 +1,7 @@
+<div class="input-container">
+    <app-google-wrapper [label]="label" [placeholder]="placeholder" [hasInnerFieldValue]="input.value"> 
+      <input #input
+                   class="input-container__element" value="{{ value }}"
+                   (input)="onValueChanged(input.value)"/>
+    </app-google-wrapper>
+</div>
