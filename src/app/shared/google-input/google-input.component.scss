@@ -1,0 +1,32 @@
+@import '../../../styles/variables.scss';
+
+.input-container {
+  margin-left: 16px;
+
+  &__element {
+     margin: 0;
+    height: 36px;
+    padding-left: 12px;
+    width: $width-s;
+    cursor: text;
+    font-family: inherit;
+    color: inherit;
+    font-size: $font-m;
+    border-radius: 2px;
+    background-color: rgba($color-white, .5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    display: block;
+    transition: all .3s;
+
+    &:focus{
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      border-bottom: 3px solid $color-black;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-grey;
+    }
+  }
+}

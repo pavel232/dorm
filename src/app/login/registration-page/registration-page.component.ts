@@ -19,19 +19,19 @@ export class RegistrationPageComponent implements OnInit {
 
   ngOnInit() {}
 
-  goToRegister(): void {
+  public goToRegister(): void {
     this.pageName = 'Register new user';
     this.pageState = false;
     this.confirm = '';
   }
 
-  goToLogin(): void {
+  public goToLogin(): void {
     this.pageName = 'Sign In';
     this.pageState = true;
     this.isConfirm = true;
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     if (this.pageState) {
       this.request(this.login, this.password, 'signIn');
     } else {
@@ -44,7 +44,7 @@ export class RegistrationPageComponent implements OnInit {
     }
   }
 
-  request(login, password, method): void {
+  public request(login, password, method): void {
     const data: Login = {
       username: login,
       password
@@ -64,5 +64,17 @@ export class RegistrationPageComponent implements OnInit {
         .then(d => console.log('Everything is ok:', d))
         .catch(err => console.log('Error:', err));
     }
+  }
+
+  public changedPassword(password): void {
+    this.password = password;
+  }
+
+  public changedLogin(login): void {
+    this.login = login;
+  }
+
+  public changedRepeatPassword(password): void {
+    this.confirm = password;
   }
 }
