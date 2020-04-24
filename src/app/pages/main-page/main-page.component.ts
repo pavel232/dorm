@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Student } from 'src/app/models/student.model';
 
 @Component({
   selector: 'app-main-page',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+
+  public students: Student[];
 
   constructor() { }
 
@@ -16,7 +19,8 @@ export class MainPageComponent implements OnInit {
     return response.json();
   })
   .then((data) => {
-    console.log(data);
+    this.students = data;
+    console.log(this.students);
   });
   }
 

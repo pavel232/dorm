@@ -1,23 +1,36 @@
-<form class="register">
-  <h3>Register new user</h3>
+<form class="register wrapper" (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+  <h3>{{pageName}}</h3>
 
-  <label>Login
+  <label>Username
     <input name="login" required
-
+      [(ngModel)]="login"
     >
   </label>
 
   <label>Password
     <input type="password" name="password" required
-
+      [(ngModel)]="password"
     >
   </label>
 
-  <label>Confirm password 
-    <input type="password" required
-      [(ngModel)="confirm"
+  <label *ngIf="!pageState">Confirm password
+    <input type="password" name="confirm" required
+      [(ngModel)]="confirm"
     >
   </label>
 
-  <button type="submit">Register</button>
+  <p
+    [hidden]="isConfirm"
+  >Passwords do not match!</p>
+
+  <div class="buttons">
+    <button type="submit" *ngIf="pageState">LogIn</button>
+    <button *ngIf="!pageState" (click)="goToLogin()">Back</button>
+
+    <button *ngIf="pageState" (click)="goToRegister()">Register</button>
+    <button type="submit"
+      [disabled]="signUpForm.form.invalid"
+      *ngIf="!pageState"
+    >Register</button>
+  </div>
 </form>
