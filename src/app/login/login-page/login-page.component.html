@@ -1,38 +1,46 @@
 <form class="register wrapper" (ngSubmit)="onSubmit()" #signUpForm="ngForm">
-  <h3>{{pageName | translate}}</h3>
+  <h3>{{ pageName | translate }}</h3>
 
   <div class="register__container">
     <app-google-input class="register__input-field"
       [name]="'login'"
-      [placeholder]="'registration_page.placeholder.login'" 
-      [label]="'registration_page.label.login'" 
+      [placeholder]="'registration_page.placeholder.login'"
+      [label]="'registration_page.label.login'"
       (valueChanged)="changeInput('login', $event)"
     ></app-google-input>
     <app-google-input class="register__input-field"
       [name]="'password'" [type]="'password'"
-      [placeholder]="'registration_page.placeholder.password'" 
-      [label]="'registration_page.label.password'" 
+      [placeholder]="'registration_page.placeholder.password'"
+      [label]="'registration_page.label.password'"
       (valueChanged)="changeInput('password', $event)"
     ></app-google-input>
     <app-google-input class="register__input-field"
       [name]="'submit'" [type]="'password'"
-      [placeholder]="'registration_page.placeholder.repeat_password'" 
-      [label]="'registration_page.label.repeat_password'" 
+      [placeholder]="'registration_page.placeholder.repeat_password'"
+      [label]="'registration_page.label.repeat_password'"
       (valueChanged)="changeInput('confirm', $event)"
       [hidden]="pageState"
     ></app-google-input>
   </div>
 
-  <p
+  <p class="caution-label"
     [hidden]="isConfirm"
-  >{{ 'registration_page.error.password_do_not_match' | translate}}</p>
+  >{{cautionText | translate}}</p>
 
   <div class="buttons">
-    <button class="loginButton" type="submit" *ngIf="pageState">{{ 'registration_page.button.login' | translate}}</button>
-    <button *ngIf="!pageState" (click)="goToLogin()">{{ 'registration_page.button.back' | translate}}</button>
+    <button class="login-button" type="submit"
+      *ngIf="pageState"
+    >{{ 'registration_page.button.login' | translate}}</button>
+    <button
+      *ngIf="!pageState"
+      (click)="goToLogin()"
+    >{{ 'registration_page.button.back' | translate}}</button>
 
-    <button class="registerButton" *ngIf="pageState" (click)="goToRegister()">{{ 'registration_page.button.register' | translate}}</button>
-    <button class="registerButton" type="submit"
+    <button class="register-button"
+      *ngIf="pageState"
+      (click)="goToRegister()"
+    >{{ 'registration_page.button.register' | translate}}</button>
+    <button class="register-button" type="submit"
       [disabled]="signUpForm.form.invalid"
       *ngIf="!pageState"
     >{{ 'registration_page.button.register' | translate}}</button>

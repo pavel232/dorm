@@ -35,21 +35,21 @@ export class LoginPageComponent implements OnInit {
   public onSubmit(): void {
     if (this.pageState) {
       if (this.login === '' || this.password === '') {
-        this.cautionText = 'Fields cannot be empty!';
+        this.cautionText = 'registration_page.error.fields_cannot_be_empty';
         this.isConfirm = false;
       } else {
         this.request(this.login, this.password, 'signIn');
       }
     } else {
       if (this.login === '' || this.password === '' || this.confirm === '') {
-        this.cautionText = 'Fields cannot be empty!';
+        this.cautionText = 'registration_page.error.fields_cannot_be_empty';
         this.isConfirm = false;
       } else {
         if (this.password === this.confirm) {
           this.isConfirm = true;
           this.request(this.login, this.password, 'signUp');
         } else {
-          this.cautionText = 'Passwords do not match!';
+          this.cautionText = 'registration_page.error.password_do_not_match';
           this.isConfirm = false;
         }
       }
