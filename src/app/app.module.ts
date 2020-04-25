@@ -10,7 +10,14 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared-module.module';
 import { CoreModule } from './core/core-module.module';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { LoginModule } from './login/login.module';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -20,8 +27,16 @@ import { LoginModule } from './login/login.module';
     DetailPageComponent,
     NotFoundComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, SharedModule, CoreModule, LoginModule],
-  providers: [],
+  imports: [    TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: HttpLoaderFactory,
+      deps: [HttpClient]
+  },
+  defaultLanguage: 'en'
+  }),
+  BrowserModule, AppRoutingModule, FormsModule, SharedModule, CoreModule, LoginModule, HttpClientModule],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
