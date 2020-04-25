@@ -7,7 +7,7 @@ import { Login } from 'src/app/models/login.model';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-  public pageName = 'Sign In';
+  public pageName = 'registration_page.page_name.sign_in';
   public pageState = true;
 
   public login = '';
@@ -21,13 +21,13 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {}
 
   public goToRegister(): void {
-    this.pageName = 'Register new user';
+    this.pageName = 'registration_page.page_name.sign_up';
     this.pageState = false;
     this.confirm = '';
   }
 
   public goToLogin(): void {
-    this.pageName = 'Sign In';
+    this.pageName = 'registration_page.page_name.sign_in';
     this.pageState = true;
     this.isConfirm = true;
   }
