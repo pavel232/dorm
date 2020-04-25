@@ -1,11 +1,39 @@
+<form class="register wrapper" (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+  <h3>{{pageName}}</h3>
 
+  <div class="register__container">
+    <app-google-input class="register__input-field"
+      [name]="'login'"
+      [placeholder]="'Login...'"
+      [label]="'Login'" (valueChanged)="changeInput('login', $event)"
+    ></app-google-input>
+    <app-google-input class="register__input-field"
+      [name]="'password'" [type]="'password'"
+      [placeholder]="'Password...'"
+      [label]="'Password'" (valueChanged)="changeInput('password', $event)"
+    ></app-google-input>
+    <app-google-input class="register__input-field"
+      [name]="'submit'" [type]="'password'"
+      [placeholder]="'Repeat password...'"
+      [label]="'Repeat password'" (valueChanged)="changeInput('confirm', $event)"
+      [hidden]="pageState"
+    ></app-google-input>
+  </div>
 
-<form class="login-form">
-  <input type="text" name="login" placeholder="Login" required>
-  <input type="password" name="password" placeholder="Password" required>
-  <button class="submit-button" type="submit">LogIn</button>
+  <p
+    [hidden]="isConfirm"
+  >{{cautionText}}</p>
+
+  <div class="buttons">
+    <button class="loginButton" type="submit" *ngIf="pageState">LogIn</button>
+    <button *ngIf="!pageState" (click)="goToLogin()">Back</button>
+
+    <button class="registerButton" *ngIf="pageState" (click)="goToRegister()">Register</button>
+    <button class="registerButton" type="submit"
+      [disabled]="signUpForm.form.invalid"
+      *ngIf="!pageState"
+    >Register</button>
+  </div>
 </form>
 
-<button class="register-button"
-  (click)="goToRegisterPage()"
->Register</button>
+

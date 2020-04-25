@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { RegistrationPageComponent } from './login/registration-page/registration-page.component';
 import { RouterConstants } from './contants/router-constants';
+import { LoginPageComponent } from './login/login-page/login-page.component';
 
 const routes: Routes = [
   { path: RouterConstants.main.path, component: MainPageComponent },
-  { path: RouterConstants.register.path, component: RegistrationPageComponent },
+  { path: RouterConstants.login.path, component: LoginPageComponent },
   { path: RouterConstants.detail.path, component: DetailPageComponent },
   {
     path: RouterConstants.initial.path,
