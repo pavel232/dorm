@@ -18,6 +18,9 @@ export class GoogleInputComponent {
   @Input() public value: string;
   @Input() public label: string;
   @Input() public placeholder: string;
+  @Input() public name: string;
+  @Input() public type: string;
+  @Input() public required: string;
   @Output() public valueChanged: EventEmitter<string> = new EventEmitter<string>();
 
   public onValueChanged(value) {

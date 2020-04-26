@@ -1,26 +1,31 @@
 {
-    "registration_page": {
-        "label": {
-            "login": "Login",
-            "password": "Password",
-            "repeat_password": "Repeat password"
-        },
-        "placeholder": {
-            "login": "Login...",
-            "password": "Password...",
-            "repeat_password": "Repeat password..."
-        },
-        "button": {
-            "login": "Login",
-            "back": "Back",
-            "register": "Register"
-        },
-        "error": {
-            "password_do_not_match": "Passwords do not match!"
-        },
-        "page_name": {
-            "sign_in": "Sign In",
-            "sign_up": "Register new user"
-        }
+  "registration_page": {
+    "label": {
+      "login": "Login",
+      "password": "Password",
+      "repeat_password": "Repeat password"
+    },
+    "placeholder": {
+      "login": "Login...",
+      "password": "Password...",
+      "repeat_password": "Repeat password..."
+    },
+    "button": {
+      "login": "Login",
+      "back": "Back",
+      "register": "Register"
+    },
+    "error": {
+      "password_do_not_match": "Passwords do not match!",
+      "fields_cannot_be_empty": "Fields cannot be empty!"
+    },
+    "page_name": {
+      "sign_in": "Sign In",
+      "sign_up": "Register new user"
     }
+  },
+  "main_page": {
+    "search_label": "Search",
+    "search_placeholder": "Search"
+  }
 }
