@@ -1,9 +1,17 @@
-<h3>Students:</h3>
+<div class="wrapper">
+  <h3>Students:</h3>
 
-<ul class="wrapper">
-  <li *ngFor="let student of students">
-    <p>{{student.firstname}} {{student.lastname}}</p>
-    <p>{{student.date}}</p>
-    <p>Room {{student.studroom.Room}}, Floor {{student.studfloor.Floor}}</p>
-  </li>
-</ul>
+  <app-google-input
+    [placeholder]="'main_page.search_placeholder'"
+    [label]="'main_page.search_label'"
+    (valueChanged)="setSearchString($event)"
+  ></app-google-input>
+
+  <ol class="students-list">
+    <li *ngFor="let student of students | search:searchString let i = index">
+      <p class="students-list__title">{{i + 1}}. {{student.firstname}} {{student.lastname}}</p>
+      <p class="students-list__text">Floor {{student.studfloor.Floor}}, Room {{student.studroom.Room}}</p>
+      <p class="students-list__text">{{student.date}}</p>
+    </li>
+  </ol>
+</div>

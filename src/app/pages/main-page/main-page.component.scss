@@ -3,4 +3,37 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: 7vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+.students-list {
+  width: 100%;
+  padding: 0;
+
+  &__title {
+    font-size: 23px;
+  }
+
+  &__text {
+    margin-left: 25px;
+    font-size: 16px;
+  }
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid grey;
+  list-style-type: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken(#e2e2e2, 5%);
+  }
 }

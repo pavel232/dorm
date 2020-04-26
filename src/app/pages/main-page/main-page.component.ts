@@ -7,23 +7,23 @@ import { Student } from 'src/app/models/student.model';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-
+  public searchString = '';
   public students: Student[];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-
-  fetch('http://localhost:8080/student')
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    this.students = data;
-    console.log(this.students);
-  });
+    fetch('http://localhost:8080/student')
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.students = data;
+        console.log(this.students);
+      });
   }
 
-
-
+  setSearchString(str) {
+    this.searchString = str;
+  }
 }

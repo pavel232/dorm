@@ -10,10 +10,11 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared-module.module';
 import { CoreModule } from './core/core-module.module';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoginModule } from './login/login.module';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SearchPipe } from './pipes/search.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -25,17 +26,26 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     MainPageComponent,
     DetailPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SearchPipe
   ],
-  imports: [    TranslateModule.forRoot({
-    loader: {
-      provide: TranslateLoader,
-      useFactory: HttpLoaderFactory,
-      deps: [HttpClient]
-  },
-  defaultLanguage: 'en'
-  }),
-  BrowserModule, AppRoutingModule, FormsModule, SharedModule, CoreModule, LoginModule, HttpClientModule],
+  imports: [
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      defaultLanguage: 'en'
+    }),
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    SharedModule,
+    CoreModule,
+    LoginModule,
+    HttpClientModule
+  ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
 })
