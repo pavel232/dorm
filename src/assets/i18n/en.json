@@ -25,7 +25,19 @@
     }
   },
   "main_page": {
+    "title": "Students",
     "search_label": "Search",
-    "search_placeholder": "Search"
+    "search_placeholder": "Search",
+    "add_new": "Add new student"
+  },
+  "detail_page": {
+    "title": "Student detail",
+    "first": "First name",
+    "last": "Last name",
+    "id": "Student id",
+    "date": "Registration date",
+    "floor": "Floor",
+    "room": "Room",
+    "delete": "Delete"
   }
 }

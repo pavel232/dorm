@@ -1,1 +1,27 @@
-<p>detail-page works!</p>
+<div class="wrapper">
+  <h3>{{'detail_page.title' | translate}}</h3>
+
+  <p class="element-name">{{student.firstname}} {{student.lastname}}</p>
+
+  <div class="element">
+    {{'detail_page.id' | translate}}:
+    <span>{{student.id}}</span>
+  </div>
+  <div class="element">
+    {{'detail_page.date' | translate}}:
+    <span>{{student.date}}</span>
+  </div>
+  <div class="element">
+    {{'detail_page.floor' | translate}}:
+    <span>{{student.studfloor.Floor}}</span>
+  </div>
+  <div class="element">
+    {{'detail_page.room' | translate}}:
+    <span>{{student.studroom.Room}}</span>
+  </div>
+
+  <div class="buttons">
+    <button (click)="goBack()">{{'registration_page.button.back' | translate}}</button>
+    <button class="delete-button">{{'detail_page.delete' | translate}}</button>
+  </div>
+</div>
