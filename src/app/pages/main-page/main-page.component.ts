@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Student } from 'src/app/models/student.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -10,7 +11,7 @@ export class MainPageComponent implements OnInit {
   public searchString = '';
   public students: Student[];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     fetch('http://localhost:8080/student')
@@ -23,7 +24,15 @@ export class MainPageComponent implements OnInit {
       });
   }
 
-  setSearchString(str) {
+  setSearchString(str): void {
     this.searchString = str;
+  }
+
+  public listClick(student: Student): void {
+    this.router.navigate(['./detail', student.id], {
+      queryParams: {
+        id: student.id
+      }
+    });
   }
 }

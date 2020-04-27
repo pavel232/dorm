@@ -1,5 +1,8 @@
 <div class="wrapper">
-  <h3>Students:</h3>
+  <div class="headline">
+    <h3>{{'main_page.title' | translate}}</h3>
+    <button class="add-new-button">{{'main_page.add_new' | translate}}</button>
+  </div>
 
   <app-google-input
     [placeholder]="'main_page.search_placeholder'"
@@ -8,10 +11,14 @@
   ></app-google-input>
 
   <ol class="students-list">
-    <li *ngFor="let student of students | search:searchString let i = index">
+    <li
+      *ngFor="let student of students | search:searchString let i = index"
+
+      (click)="listClick(student)"
+    >
       <p class="students-list__title">{{i + 1}}. {{student.firstname}} {{student.lastname}}</p>
-      <p class="students-list__text">Floor {{student.studfloor.Floor}}, Room {{student.studroom.Room}}</p>
-      <p class="students-list__text">{{student.date}}</p>
+      <p class="students-list__text">Room {{student.studroom.Room}}</p>
     </li>
   </ol>
 </div>
+
