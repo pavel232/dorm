@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/app/models/login.model';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login-page',
@@ -16,7 +17,7 @@ export class LoginPageComponent implements OnInit {
   public isConfirm = true;
   public cautionText = '';
 
-  constructor() {}
+  constructor(private loginService: LoginService) {}
 
   ngOnInit() {}
 
@@ -74,18 +75,9 @@ export class LoginPageComponent implements OnInit {
     };
 
     if (method === 'signIn') {
-      console.log(data);
+      this.loginService.logIn(data);
     } else {
-      fetch('http://localhost:8080/signup', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        // .then(resp => resp.json())
-        .then(d => console.log('Everything is ok:', d))
-        .catch(err => console.log('Error:', err));
+      this.loginService.register(data);
     }
   }
 }
