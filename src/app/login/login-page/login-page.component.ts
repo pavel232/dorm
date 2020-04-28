@@ -39,7 +39,7 @@ export class LoginPageComponent implements OnInit {
         this.cautionText = 'registration_page.error.fields_cannot_be_empty';
         this.isConfirm = false;
       } else {
-        this.request(this.login, this.password, 'signIn');
+        this.request(this.login, this.password, 'logIn');
       }
     } else {
       if (this.login === '' || this.password === '' || this.confirm === '') {
@@ -74,10 +74,10 @@ export class LoginPageComponent implements OnInit {
       password
     };
 
-    if (method === 'signIn') {
+    if (method === 'logIn') {
       this.loginService.logIn(data);
     } else {
-      this.loginService.register(data);
+      this.loginService.signUp(data);
     }
   }
 }
