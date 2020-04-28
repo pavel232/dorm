@@ -15,6 +15,7 @@ import { LoginModule } from './login/login.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SearchPipe } from './pipes/search.pipe';
+import { AddPageComponent } from './pages/add-page/add-page.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -27,7 +28,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MainPageComponent,
     DetailPageComponent,
     NotFoundComponent,
-    SearchPipe
+    SearchPipe,
+    AddPageComponent
   ],
   imports: [
     TranslateModule.forRoot({

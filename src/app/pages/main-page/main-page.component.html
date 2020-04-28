@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="headline">
     <h3>{{'main_page.title' | translate}}</h3>
-    <button class="add-new-button">{{'main_page.add_new' | translate}}</button>
+    <button class="add-new-button" (click)="goAddPage()">{{'main_page.add_new' | translate}}</button>
   </div>
 
   <app-google-input
@@ -14,7 +14,7 @@
     <li
       *ngFor="let student of students | search:searchString let i = index"
 
-      (click)="listClick(student)"
+      (click)="goDetailPage(student)"
     >
       <p class="students-list__title">{{i + 1}}. {{student.firstname}} {{student.lastname}}</p>
       <p class="students-list__text">Room {{student.studroom.Room}}</p>
