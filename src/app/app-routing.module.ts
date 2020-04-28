@@ -5,11 +5,13 @@ import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RouterConstants } from './contants/router-constants';
 import { LoginPageComponent } from './login/login-page/login-page.component';
+import { AddPageComponent } from './pages/add-page/add-page.component';
 
 const routes: Routes = [
   { path: RouterConstants.main.path, component: MainPageComponent },
   { path: RouterConstants.login.path, component: LoginPageComponent },
   { path: RouterConstants.detail.path, component: DetailPageComponent },
+  { path: RouterConstants.add.path, component: AddPageComponent },
   {
     path: RouterConstants.initial.path,
     redirectTo: RouterConstants.main.path,

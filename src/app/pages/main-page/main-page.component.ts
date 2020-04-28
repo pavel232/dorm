@@ -28,11 +28,15 @@ export class MainPageComponent implements OnInit {
     this.searchString = str;
   }
 
-  public listClick(student: Student): void {
+  public goDetailPage(student: Student): void {
     this.router.navigate(['./detail', student.id], {
       queryParams: {
         id: student.id
       }
     });
+  }
+
+  public goAddPage() {
+    this.router.navigateByUrl('add');
   }
 }
