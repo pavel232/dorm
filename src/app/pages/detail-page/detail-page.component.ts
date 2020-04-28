@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/models/student.model';
-import { GetStudentService } from 'src/app/services/get-student.service';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-detail-page',
@@ -9,14 +9,22 @@ import { GetStudentService } from 'src/app/services/get-student.service';
   styleUrls: ['./detail-page.component.scss']
 })
 export class DetailPageComponent implements OnInit {
-  public student: Student;
+  public student: Student = {
+    id: 0,
+    date: '',
+    firstname: '',
+    lastname: '',
+    uuid: 0,
+    studfloor: { id: 0, Floor: 0 },
+    studroom: { id: 0, Room: 0 }
+  };
 
-  constructor(private routerParams: ActivatedRoute, private getStudentService: GetStudentService) {}
+  constructor(private routerParams: ActivatedRoute, private studentService: StudentService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     const studentId = `/${this.routerParams.snapshot.queryParams.id}`;
 
-    this.getStudentService.getStudentList(studentId).subscribe((data: Student) => {
+    this.studentService.getStudent(studentId).subscribe(data => {
       this.student = data;
     });
   }
