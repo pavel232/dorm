@@ -10,19 +10,11 @@
   min-width: 400px;
 }
 
-.element-name {
-  font-size: 30px;
-  text-align: center;
-}
-
-.element {
+.inputs-container {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 5px;
-
-  span {
-    margin-left: 10px;
-  }
+  flex-direction: column;
+  align-items: center;
 }
 
 .buttons {

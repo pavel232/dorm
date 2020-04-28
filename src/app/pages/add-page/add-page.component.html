@@ -1,25 +1,41 @@
-<div class="wrapper">
+<form class="wrapper">
   <h3>{{'add_page.title' | translate}}</h3>
 
-  <div class="element">
-    {{'add_page.first' | translate}}:
-    <input>
+  <div class="inputs-container">
+    <app-google-input
+      [placeholder]="'add_page.first'"
+      [label]="'add_page.first'"
+      (valueChanged)="setData()"
+    ></app-google-input>
+
+    <app-google-input
+      [placeholder]="'add_page.last'"
+      [label]="'add_page.last'"
+      (valueChanged)="setData()"
+    ></app-google-input>
+
+    <app-google-input
+      [placeholder]="'detail_page.floor'"
+      [label]="'detail_page.floor'"
+      [type]="'number'"
+      (valueChanged)="setData()"
+    ></app-google-input>
+
+    <app-google-input
+      [placeholder]="'detail_page.room'"
+      [label]="'detail_page.room'"
+      [type]="'number'"
+      (valueChanged)="setData()"
+    ></app-google-input>
   </div>
-  <div class="element">
-    {{'add_page.last' | translate}}:
-    <input>
-  </div>
-  <div class="element">
-    {{'detail_page.floor' | translate}}:
-    <input>
-  </div>
-  <div class="element">
-    {{'detail_page.room' | translate}}:
-    <input>
-  </div>
+
+  <app-caution-label
+    *ngIf="!isConfirm"
+    [text]="cautionLabel"
+  ></app-caution-label>
 
   <div class="buttons">
     <button (click)="goBack()">{{'registration_page.button.back' | translate}}</button>
-    <button class="add-button">{{'add_page.add' | translate}}</button>
+    <button class="add-button" (click)="addStudent()">{{'add_page.add' | translate}}</button>
   </div>
-</div>
+</form>

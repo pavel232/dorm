@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Student } from 'src/app/models/student.model';
 import { Router } from '@angular/router';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-main-page',
@@ -9,19 +10,14 @@ import { Router } from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
   public searchString = '';
-  public students: Student[];
+  public studentsList: Student;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private studentService: StudentService) {}
 
-  ngOnInit() {
-    fetch('http://localhost:8080/student')
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.students = data;
-        console.log(this.students);
-      });
+  ngOnInit(): void {
+    this.studentService.getStudent().subscribe(resp => {
+      this.studentsList = resp;
+    });
   }
 
   setSearchString(str): void {
