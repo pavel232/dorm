@@ -1,5 +1,10 @@
 <h1>Dorm</h1>
 
-<div class="user-container">
-
+<div class="user-container"
+  *ngIf="isLogin"
+>
+  {{userName}}
+  <p class="logout"
+    (click)="logout()"
+  >{{'registration_page.button.logout' | translate}}</p>
 </div>

@@ -23,6 +23,14 @@ input {
   align-items: flex-end;
 }
 
-.login-form {
-  margin-bottom: 10px;
+.logout {
+  margin: 3px 0 0 0;
+  font-size: .8rem;
+  text-decoration: underline;
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+    color: blue;
+  }
 }
