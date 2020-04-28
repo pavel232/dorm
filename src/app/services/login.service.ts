@@ -16,7 +16,7 @@ export class LoginService {
   constructor(private http: HttpClient, private router: Router) {}
 
   public checkUser(): boolean {
-    const user = JSON.parse(localStorage.getItem('User'));
+    const user: User = JSON.parse(localStorage.getItem('User'));
 
     if (user) {
       this.userName.emit(user.login);
