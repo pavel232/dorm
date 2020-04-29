@@ -5,32 +5,32 @@
     <app-google-input
       [placeholder]="'add_page.first'"
       [label]="'add_page.first'"
-      (valueChanged)="setData()"
+      (valueChanged)="setData('fname', $event)"
     ></app-google-input>
 
     <app-google-input
       [placeholder]="'add_page.last'"
       [label]="'add_page.last'"
-      (valueChanged)="setData()"
+      (valueChanged)="setData('lname', $event)"
     ></app-google-input>
 
     <app-google-input
       [placeholder]="'detail_page.floor'"
       [label]="'detail_page.floor'"
       [type]="'number'"
-      (valueChanged)="setData()"
+      (valueChanged)="setData('floor', $event)"
     ></app-google-input>
 
     <app-google-input
       [placeholder]="'detail_page.room'"
       [label]="'detail_page.room'"
       [type]="'number'"
-      (valueChanged)="setData()"
+      (valueChanged)="setData('room', $event)"
     ></app-google-input>
   </div>
 
   <app-caution-label
-    *ngIf="!isConfirm"
+    *ngIf="isConfirm"
     [text]="cautionLabel"
   ></app-caution-label>
 

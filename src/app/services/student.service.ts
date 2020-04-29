@@ -16,6 +16,7 @@ export class StudentService {
   }
 
   public addStudent(data, token) {
+    console.log(data, token);
     return this.http.post(`${this.url}/student`, data, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
