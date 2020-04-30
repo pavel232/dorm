@@ -15,11 +15,18 @@ export class StudentService {
     return this.http.get<Student>(`${this.url}/student${id}`);
   }
 
-  public addStudent(data, token) {
-    console.log(data, token);
+  public addStudent(data, token: string) {
     return this.http.post(`${this.url}/student`, data, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        Authorization: token
+      })
+    });
+  }
+
+  public deleteStudent(id: number, token: string) {
+    return this.http.delete(`${this.url}/student/${id}`, {
+      headers: new HttpHeaders({
         Authorization: token
       })
     });
