@@ -24,6 +24,7 @@
     <button (click)="goBack()">{{'registration_page.button.back' | translate}}</button>
     <button class="delete-button"
       *ngIf="rights"
+      (click)="onDelete()"
     >{{'detail_page.delete' | translate}}</button>
   </div>
 </div>

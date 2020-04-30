@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/models/student.model';
 import { StudentService } from 'src/app/services/student.service';
 import { User } from 'src/app/models/user.model';
+import { ServerMessage } from 'src/app/models/server-message.model';
 
 @Component({
   selector: 'app-detail-page',
@@ -20,16 +21,26 @@ export class DetailPageComponent implements OnInit {
     studroom: { id: 0, Room: 0 }
   };
   public rights = false;
+  public token = '';
 
   constructor(private routerParams: ActivatedRoute, private studentService: StudentService) {}
 
   ngOnInit(): void {
     const user: User = JSON.parse(localStorage.getItem('User'));
     this.rights = user.rights;
+    this.token = user.token;
 
     const studentId = `/${this.routerParams.snapshot.queryParams.id}`;
     this.studentService.getStudent(studentId).subscribe(data => {
       this.student = data;
+    });
+  }
+
+  public onDelete() {
+    this.studentService.deleteStudent(this.student.id, this.token).subscribe((r: ServerMessage) => {
+      if (r.status === 200) {
+        this.goBack();
+      }
     });
   }
 
