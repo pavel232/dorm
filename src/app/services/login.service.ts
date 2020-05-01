@@ -34,12 +34,10 @@ export class LoginService {
 
   public logIn(data: Login): void {
     this.http.post(`${this.url}/login`, data).subscribe((resp: User) => {
-      if (resp.message === 200) {
-        localStorage.setItem('User', JSON.stringify(resp));
+      localStorage.setItem('User', JSON.stringify(resp));
 
-        if (this.checkUser()) {
-          this.router.navigateByUrl('/main');
-        }
+      if (this.checkUser()) {
+        this.router.navigateByUrl('/main');
       }
     });
   }
