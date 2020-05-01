@@ -31,4 +31,12 @@ export class StudentService {
       })
     });
   }
+
+  public updateStudent(id: number, data, token: string) {
+    return this.http.put(`${this.url}/student/${id}`, data, {
+      headers: new HttpHeaders({
+        Authorization: token
+      })
+    });
+  }
 }

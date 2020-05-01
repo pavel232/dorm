@@ -44,6 +44,12 @@ export class DetailPageComponent implements OnInit {
     });
   }
 
+  public onUpdate() {
+    this.studentService
+      .updateStudent(this.student.id, this.student, this.token)
+      .subscribe(r => console.log(r));
+  }
+
   public goBack() {
     window.history.back();
   }
