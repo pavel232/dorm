@@ -2,6 +2,9 @@
   <h3>{{'detail_page.title' | translate}}</h3>
 
   <p class="element-name">{{student.firstname}} {{student.lastname}}</p>
+  <p class="element-name"
+    *ngIf="student.uuid === uuid"
+  >({{'detail_page.you' | translate}})</p>
 
   <div class="element">
     {{'detail_page.id' | translate}}:

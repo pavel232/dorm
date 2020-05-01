@@ -13,12 +13,14 @@ export class MainPageComponent implements OnInit {
   public searchString = '';
   public studentsList: Student;
   public rights = false;
+  public uuid: number;
 
   constructor(private router: Router, private studentService: StudentService) {}
 
   ngOnInit(): void {
     const user: User = JSON.parse(localStorage.getItem('User'));
     this.rights = user.rights;
+    this.uuid = user.uuid;
 
     this.studentService.getStudent().subscribe(resp => {
       this.studentsList = resp;

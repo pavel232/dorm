@@ -35,6 +35,14 @@
   }
 }
 
+.selected {
+  background-color: chartreuse;
+}
+
+.empty {
+  text-align: center;
+}
+
 li {
   padding: 5px 10px;
   border-bottom: 1px solid grey;

@@ -19,10 +19,12 @@
     "title": "Students",
     "search_label": "Search",
     "search_placeholder": "Search",
+    "empty": "List is empty...",
     "add_new": "Add new student"
   },
   "detail_page": {
     "title": "Student detail",
+    "you": "You",
     "id": "Student id",
     "date": "Registration date",
     "floor": "Floor",
