@@ -18,11 +18,18 @@
 .element {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 5px;
 
   span {
     margin-left: 10px;
   }
+}
+
+.edit-field {
+  width: 200px;
+  height: 25px;
+  font-size: 18px;
 }
 
 .buttons {
@@ -44,6 +51,6 @@
   background-color: gold;
 
   &:hover {
-    background-color: lighten(gold, 5%);
+    background-color: lighten(gold, 15%);
   }
 }

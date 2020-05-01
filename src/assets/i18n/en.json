@@ -27,6 +27,8 @@
     "you": "You",
     "id": "Student id",
     "date": "Registration date",
+    "fname": "First name",
+    "lname": "Last name",
     "floor": "Floor",
     "room": "Room",
     "button": {
