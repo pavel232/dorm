@@ -1,29 +1,19 @@
 {
-  "registration_page": {
+  "login_page": {
     "label": {
       "login": "Login",
-      "password": "Password",
-      "repeat_password": "Repeat password"
+      "password": "Password"
     },
     "placeholder": {
       "login": "Login...",
-      "password": "Password...",
-      "repeat_password": "Repeat password..."
+      "password": "Password..."
     },
     "button": {
       "login": "Login",
-      "back": "Back",
-      "register": "Register",
-      "logout": "Logout"
+      "logout": "logout"
     },
-    "error": {
-      "password_do_not_match": "Passwords do not match!",
-      "fields_cannot_be_empty": "Fields cannot be empty!"
-    },
-    "page_name": {
-      "sign_in": "Sign In",
-      "sign_up": "Register new user"
-    }
+    "error": "Fields cannot be empty!",
+    "title": "Sign In"
   },
   "main_page": {
     "title": "Students",

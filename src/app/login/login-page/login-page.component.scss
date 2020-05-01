@@ -5,7 +5,7 @@
   margin-top: 7vh;
 }
 
-.register {
+.login {
   width: 320px;
 
   &__container {
@@ -18,7 +18,7 @@
 
 .buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 label {
@@ -38,13 +38,5 @@ button {
 
   &:hover {
     background-color: lighten(greenyellow, 15%);
-  }
-}
-
-.register-button {
-  background-color: lightskyblue;
-
-  &:hover {
-    background-color: lighten(lightskyblue, 5%);
   }
 }
