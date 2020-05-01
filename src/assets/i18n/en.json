@@ -37,7 +37,8 @@
     "date": "Registration date",
     "floor": "Floor",
     "room": "Room",
-    "delete": "Delete"
+    "delete": "Delete",
+    "update": "Update info"
   },
   "add_page": {
     "title": "Add new student",

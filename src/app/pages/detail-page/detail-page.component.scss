@@ -39,3 +39,11 @@
     background-color: lighten(lightcoral, 5%);
   }
 }
+
+.update-button {
+  background-color: gold;
+
+  &:hover {
+    background-color: lighten(gold, 5%);
+  }
+}
