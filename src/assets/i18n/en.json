@@ -27,13 +27,23 @@
     "date": "Registration date",
     "floor": "Floor",
     "room": "Room",
-    "delete": "Delete",
-    "update": "Update info"
+    "button": {
+      "delete": "Delete",
+      "update": "Update info",
+      "back": "Back"
+    }
   },
   "add_page": {
-    "title": "Add new student",
+    "button": {
+      "back": "Back",
+      "create": "Create"
+    },
+    "title": "Create new student",
+    "username": "Username",
+    "password": "Password",
     "first": "First name",
     "last": "Last name",
-    "add": "Add"
+    "floor": "Floor",
+    "room": "Room"
   }
 }

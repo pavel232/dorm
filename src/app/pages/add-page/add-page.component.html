@@ -3,6 +3,20 @@
 
   <div class="inputs-container">
     <app-google-input
+      [placeholder]="'add_page.username'"
+      [label]="'add_page.username'"
+      (valueChanged)="setData('username', $event)"
+    ></app-google-input>
+
+    <app-google-input
+      [placeholder]="'add_page.password'"
+      [label]="'add_page.password'"
+      (valueChanged)="setData('password', $event)"
+    ></app-google-input>
+
+    <div class="separator"></div>
+
+    <app-google-input
       [placeholder]="'add_page.first'"
       [label]="'add_page.first'"
       (valueChanged)="setData('fname', $event)"
@@ -35,7 +49,7 @@
   ></app-caution-label>
 
   <div class="buttons">
-    <button (click)="goBack()">{{'registration_page.button.back' | translate}}</button>
-    <button class="add-button" (click)="addStudent()">{{'add_page.add' | translate}}</button>
+    <button (click)="goBack()">{{'add_page.button.back' | translate}}</button>
+    <button class="add-button" (click)="createStudent()">{{'add_page.button.create' | translate}}</button>
   </div>
 </form>

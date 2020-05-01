@@ -3,6 +3,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Login } from '../models/login.model';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { ServerMessage } from '../models/server-message.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +17,10 @@ export class LoginService {
   @Output() public isLogin: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  private handleError(error: HttpErrorResponse) {
+    return throwError(error.error);
+  }
 
   public checkUser(): boolean {
     const user: User = JSON.parse(localStorage.getItem('User'));
@@ -28,8 +35,8 @@ export class LoginService {
     }
   }
 
-  public signUp(data: Login): void {
-    this.http.post(`${this.url}/signup`, data).subscribe(resp => console.log('Response:\n', resp));
+  public signUp(data: Login) {
+    return this.http.post(`${this.url}/signup`, data).pipe(catchError(this.handleError));
   }
 
   public logIn(data: Login): void {
