@@ -21,16 +21,16 @@
   </div>
 
   <div class="buttons">
-    <button (click)="goBack()">{{'registration_page.button.back' | translate}}</button>
+    <button (click)="goBack()">{{'detail_page.button.back' | translate}}</button>
 
     <button class="update-button"
       *ngIf="rights"
       (click)="onUpdate()"
-    >{{'detail_page.update' | translate}}</button>
+    >{{'detail_page.button.update' | translate}}</button>
 
     <button class="delete-button"
       *ngIf="rights"
       (click)="onDelete()"
-    >{{'detail_page.delete' | translate}}</button>
+    >{{'detail_page.button.delete' | translate}}</button>
   </div>
 </div>

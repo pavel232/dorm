@@ -4,4 +4,5 @@ export interface User {
   rights: boolean;
   role: string;
   token: string;
+  uuid: number;
 }

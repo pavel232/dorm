@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/app/services/student.service';
-import { Student } from 'src/app/models/student.model';
 import { User } from 'src/app/models/user.model';
+import { LoginService } from 'src/app/services/login.service';
+import { Login } from 'src/app/models/login.model';
 
 @Component({
   selector: 'app-add-page',
@@ -12,6 +13,8 @@ export class AddPageComponent implements OnInit {
   public token = '';
   public isConfirm = false;
   public cautionLabel = 'caution';
+  private username: string;
+  private password: string;
 
   private student = {
     firstname: '',
@@ -21,7 +24,7 @@ export class AddPageComponent implements OnInit {
     studfloor: { id: 1, floor: 0 }
   };
 
-  constructor(private studentService: StudentService) {}
+  constructor(private studentService: StudentService, private loginService: LoginService) {}
 
   ngOnInit() {
     const user: User = JSON.parse(localStorage.getItem('User'));
@@ -39,24 +42,28 @@ export class AddPageComponent implements OnInit {
       this.student.studfloor.floor = +data;
     } else if (type === 'room') {
       this.student.studroom.room = +data;
+    } else if (type === 'username') {
+      this.username = data;
+    } else if (type === 'password') {
+      this.password = data;
     }
   }
 
-  addStudent() {
-    if (
-      this.student.firstname ||
-      this.student.lastname ||
-      this.student.studfloor.floor ||
-      this.student.studroom.room
-    ) {
-      this.studentService.addStudent(this.student, this.token).subscribe(resp => console.log(resp));
-    } else {
-      this.isConfirm = true;
-      this.cautionLabel = 'registration_page.error.fields_cannot_be_empty';
-    }
+  createStudent() {
+    const data: Login = {
+      username: this.username,
+      password: this.password
+    };
+
+    this.loginService.signUp(data).subscribe((r: any) => {
+      this.student.uuid = r.uuid;
+      this.studentService
+        .createStudent(this.student, this.token)
+        .subscribe(resp => console.log(resp));
+    });
   }
 
-  public goBack() {
+  public goBack(): void {
     window.history.back();
   }
 }

@@ -17,6 +17,13 @@
   align-items: center;
 }
 
+.separator {
+  width: 80%;
+  height: 1px;
+  margin: 10px 0;
+  background-color: gray;
+}
+
 .buttons {
   width: 100%;
   display: flex;
