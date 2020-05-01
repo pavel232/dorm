@@ -22,6 +22,7 @@ export class DetailPageComponent implements OnInit {
   };
   public rights = false;
   public token = '';
+  public uuid: number;
 
   constructor(private routerParams: ActivatedRoute, private studentService: StudentService) {}
 
@@ -29,6 +30,7 @@ export class DetailPageComponent implements OnInit {
     const user: User = JSON.parse(localStorage.getItem('User'));
     this.rights = user.rights;
     this.token = user.token;
+    this.uuid = user.uuid;
 
     const studentId = `/${this.routerParams.snapshot.queryParams.id}`;
     this.studentService.getStudent(studentId).subscribe(data => {

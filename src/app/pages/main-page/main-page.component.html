@@ -16,8 +16,8 @@
   <ol class="students-list">
     <li
       *ngFor="let student of studentsList | search:searchString let i = index"
-
       (click)="goDetailPage(student)"
+      [className]="student.uuid === uuid ? 'selected' : ''"
     >
       <p class="students-list__title">{{i + 1}}. {{student.firstname}} {{student.lastname}}</p>
       <p class="students-list__text">Room {{student.studroom.Room}}</p>
