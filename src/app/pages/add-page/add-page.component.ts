@@ -11,7 +11,9 @@ import { Login } from 'src/app/models/login.model';
 })
 export class AddPageComponent implements OnInit {
   public token = '';
+  public role: string;
   public isConfirm = false;
+  public isWorker = false;
   public cautionLabel = 'caution';
   private username: string;
   private password: string;
@@ -29,6 +31,7 @@ export class AddPageComponent implements OnInit {
   ngOnInit() {
     const user: User = JSON.parse(localStorage.getItem('User'));
     this.token = user.token;
+    this.role = user.role;
   }
 
   setData(type: string, data) {
@@ -56,10 +59,12 @@ export class AddPageComponent implements OnInit {
     };
 
     this.loginService.signUp(data).subscribe((r: any) => {
-      this.student.uuid = r.uuid;
-      this.studentService
-        .createStudent(this.student, this.token)
-        .subscribe(resp => console.log(resp));
+      if (!this.isWorker) {
+        this.student.uuid = r.uuid;
+        this.studentService
+          .createStudent(this.student, this.token)
+          .subscribe(resp => console.log(resp));
+      }
     });
   }
 

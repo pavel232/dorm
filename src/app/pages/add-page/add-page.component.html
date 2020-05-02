@@ -14,33 +14,40 @@
       (valueChanged)="setData('password', $event)"
     ></app-google-input>
 
+    <label class="create-worker" *ngIf="role==='admin'">
+      <input type="checkbox" name="isWorker" [(ngModel)]="isWorker">
+      {{'add_page.worker' | translate}}
+    </label>
+
     <div class="separator"></div>
 
-    <app-google-input
-      [placeholder]="'add_page.first'"
-      [label]="'add_page.first'"
-      (valueChanged)="setData('fname', $event)"
-    ></app-google-input>
+    <div [hidden]="isWorker">
+      <app-google-input
+        [placeholder]="'add_page.first'"
+        [label]="'add_page.first'"
+        (valueChanged)="setData('fname', $event)"
+      ></app-google-input>
 
-    <app-google-input
-      [placeholder]="'add_page.last'"
-      [label]="'add_page.last'"
-      (valueChanged)="setData('lname', $event)"
-    ></app-google-input>
+      <app-google-input
+        [placeholder]="'add_page.last'"
+        [label]="'add_page.last'"
+        (valueChanged)="setData('lname', $event)"
+      ></app-google-input>
 
-    <app-google-input
-      [placeholder]="'detail_page.floor'"
-      [label]="'detail_page.floor'"
-      [type]="'number'"
-      (valueChanged)="setData('floor', $event)"
-    ></app-google-input>
+      <app-google-input
+        [placeholder]="'detail_page.floor'"
+        [label]="'detail_page.floor'"
+        [type]="'number'"
+        (valueChanged)="setData('floor', $event)"
+      ></app-google-input>
 
-    <app-google-input
-      [placeholder]="'detail_page.room'"
-      [label]="'detail_page.room'"
-      [type]="'number'"
-      (valueChanged)="setData('room', $event)"
-    ></app-google-input>
+      <app-google-input
+        [placeholder]="'detail_page.room'"
+        [label]="'detail_page.room'"
+        [type]="'number'"
+        (valueChanged)="setData('room', $event)"
+      ></app-google-input>
+    </div>
   </div>
 
   <app-caution-label
