@@ -11,11 +11,12 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared-module.module';
 import { CoreModule } from './core/core-module.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { LoginModule } from './login/login.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SearchPipe } from './pipes/search.pipe';
 import { AddPageComponent } from './pages/add-page/add-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { NotifierModule } from 'angular-notifier';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -28,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MainPageComponent,
     DetailPageComponent,
     NotFoundComponent,
+    LoginPageComponent,
     SearchPipe,
     AddPageComponent
   ],
@@ -45,8 +47,21 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     SharedModule,
     CoreModule,
-    LoginModule,
-    HttpClientModule
+    HttpClientModule,
+    NotifierModule.withConfig({
+      position: {
+        horizontal: {
+            position: 'right',
+            distance: 12
+        },
+        vertical: {
+            position: 'bottom',
+            distance: 12,
+            gap: 10
+        }
+    },
+  theme: 'material'
+    })
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

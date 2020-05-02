@@ -1,26 +1,55 @@
 {
-    "registration_page": {
-        "label": {
-            "login": "Login",
-            "password": "Password",
-            "repeat_password": "Repeat password"
-        },
-        "placeholder": {
-            "login": "Login...",
-            "password": "Password...",
-            "repeat_password": "Repeat password..."
-        },
-        "button": {
-            "login": "Login",
-            "back": "Back",
-            "register": "Register"
-        },
-        "error": {
-            "password_do_not_match": "Passwords do not match!"
-        },
-        "page_name": {
-            "sign_in": "Sign In",
-            "sign_up": "Register new user"
-        }
+    "login_page": {
+      "label": {
+        "login": "Login",
+        "password": "Password"
+      },
+      "placeholder": {
+        "login": "Login...",
+        "password": "Password..."
+      },
+      "button": {
+        "login": "Login",
+        "logout": "logout"
+      },
+      "error": "Fields cannot be empty!",
+      "title": "Sign In"
+    },
+    "main_page": {
+      "title": "Students",
+      "search_label": "Search",
+      "search_placeholder": "Search",
+      "empty": "List is empty...",
+      "add_new": "Add new student"
+    },
+    "detail_page": {
+      "title": "Student detail",
+      "you": "You",
+      "id": "Student id",
+      "date": "Registration date",
+      "fname": "First name",
+      "lname": "Last name",
+      "floor": "Floor",
+      "room": "Room",
+      "button": {
+        "delete": "Delete",
+        "update": "Update info",
+        "back": "Back"
+      }
+    },
+    "add_page": {
+      "button": {
+        "back": "Back",
+        "create": "Create"
+      },
+      "title": "Create new student",
+      "username": "Username",
+      "password": "Password",
+      "first": "First name",
+      "last": "Last name",
+      "floor": "Floor",
+      "room": "Room",
+      "worker": "Create worker"
     }
-}
+  }
+  
