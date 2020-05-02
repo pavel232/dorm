@@ -48,6 +48,7 @@
     "first": "First name",
     "last": "Last name",
     "floor": "Floor",
-    "room": "Room"
+    "room": "Room",
+    "worker": "Create worker"
   }
 }
