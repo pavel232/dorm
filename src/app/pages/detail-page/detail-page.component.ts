@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/models/student.model';
 import { StudentService } from 'src/app/services/student.service';
 import { User } from 'src/app/models/user.model';
-import { ServerMessage } from 'src/app/models/server-message.model';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-detail-page',
@@ -24,7 +24,11 @@ export class DetailPageComponent implements OnInit {
   public token = '';
   public uuid: number;
 
-  constructor(private routerParams: ActivatedRoute, private studentService: StudentService) {}
+  constructor(
+    private routerParams: ActivatedRoute,
+    private studentService: StudentService,
+    private notifierService: NotifierService
+  ) {}
 
   ngOnInit(): void {
     const user: User = JSON.parse(localStorage.getItem('User'));
@@ -33,23 +37,23 @@ export class DetailPageComponent implements OnInit {
     this.uuid = user.uuid;
 
     const studentId = `/${this.routerParams.snapshot.queryParams.id}`;
-    this.studentService.getStudent(studentId).subscribe(data => {
-      this.student = data;
-    });
+    this.studentService.getStudent(studentId).subscribe(
+      data => {
+        this.student = data;
+      },
+      err => {
+        this.notifierService.notify('error', err.error.message);
+        console.error('Error: ', err.error);
+      }
+    );
   }
 
   public onDelete() {
-    this.studentService.deleteStudent(this.student.id, this.token).subscribe((r: ServerMessage) => {
-      if (r.status === 200) {
-        this.goBack();
-      }
-    });
+    this.studentService.deleteStudent(this.student.id, this.token);
   }
 
   public onUpdate() {
-    this.studentService
-      .updateStudent(this.student.id, this.student, this.token)
-      .subscribe(r => console.log(r));
+    this.studentService.updateStudent(this.student.id, this.student, this.token);
   }
 
   public goBack() {

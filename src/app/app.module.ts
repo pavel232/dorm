@@ -51,16 +51,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotifierModule.withConfig({
       position: {
         horizontal: {
-            position: 'right',
-            distance: 12
+          position: 'middle',
+          distance: 12
         },
         vertical: {
-            position: 'bottom',
-            distance: 12,
-            gap: 10
+          position: 'bottom',
+          distance: 12,
+          gap: 10
         }
-    },
-  theme: 'material'
+      },
+      theme: 'material'
     })
   ],
   providers: [HttpClient],

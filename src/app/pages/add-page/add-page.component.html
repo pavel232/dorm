@@ -15,9 +15,11 @@
     ></app-google-input>
 
     <label class="create-worker" *ngIf="role==='admin'">
-      <input type="checkbox" name="isWorker" [(ngModel)]="isWorker">
-      {{'add_page.worker' | translate}}
-    </label>
+      <input type="checkbox" name="isWorker"
+        [(ngModel)]="isWorker"
+        [disabled]="username!=='worker'"
+      >
+    {{'add_page.worker' | translate}}</label>
 
     <div class="separator"></div>
 
