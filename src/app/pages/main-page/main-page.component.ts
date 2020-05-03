@@ -3,6 +3,7 @@ import { Student } from 'src/app/models/student.model';
 import { Router } from '@angular/router';
 import { StudentService } from 'src/app/services/student.service';
 import { User } from 'src/app/models/user.model';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-main-page',
@@ -15,16 +16,26 @@ export class MainPageComponent implements OnInit {
   public rights = false;
   public uuid: number;
 
-  constructor(private router: Router, private studentService: StudentService) {}
+  constructor(
+    private router: Router,
+    private studentService: StudentService,
+    private notifierService: NotifierService
+  ) {}
 
   ngOnInit(): void {
     const user: User = JSON.parse(localStorage.getItem('User'));
     this.rights = user.rights;
     this.uuid = user.uuid;
 
-    this.studentService.getStudent().subscribe(resp => {
-      this.studentsList = resp;
-    });
+    this.studentService.getStudent().subscribe(
+      resp => {
+        this.studentsList = resp;
+      },
+      err => {
+        this.notifierService.notify('error', err.error.message);
+        console.error('Error: ', err.error);
+      }
+    );
   }
 
   setSearchString(str): void {
@@ -40,6 +51,6 @@ export class MainPageComponent implements OnInit {
   }
 
   public goAddPage() {
-    this.router.navigateByUrl('add');
+    this.router.navigateByUrl('/add');
   }
 }

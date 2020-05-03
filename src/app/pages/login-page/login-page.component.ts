@@ -9,14 +9,11 @@ import { NotifierService } from 'angular-notifier';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-  private readonly notifier: NotifierService;
   public login = '';
   public password = '';
   public isConfirm = true;
 
-  constructor(private loginService: LoginService, notifierService: NotifierService) {
-    this.notifier = notifierService;
-  }
+  constructor(private loginService: LoginService, private notifierService: NotifierService) {}
 
   ngOnInit() {}
 
@@ -28,7 +25,7 @@ export class LoginPageComponent implements OnInit {
 
     if (!this.login || !this.password) {
       this.isConfirm = false;
-      this.notifier.notify('warning', 'some very important text');
+      this.notifierService.notify('warning', 'Fields cannot be empty!');
     } else {
       this.loginService.logIn(data);
     }

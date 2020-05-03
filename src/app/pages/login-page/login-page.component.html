@@ -17,11 +17,6 @@
     ></app-google-input>
   </div>
 
-  <app-caution-label
-    *ngIf="!isConfirm"
-    [text]="'login_page.error'"
-  ></app-caution-label>
-
   <div class="buttons">
     <button class="login-button" type="submit"
     >{{'login_page.button.login' | translate}}</button>
