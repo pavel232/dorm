@@ -68,7 +68,7 @@ export class AddPageComponent implements OnInit {
         (r: any) => {
           if (!this.isWorker) {
             this.student.uuid = r.uuid;
-            this.studentService.createStudent(this.student, this.token);
+            this.studentService.createStudent(this.student, this.token, 'student');
           }
         },
         err => {

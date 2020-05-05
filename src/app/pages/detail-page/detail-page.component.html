@@ -6,29 +6,58 @@
     *ngIf="student.uuid === uuid"
   >({{'detail_page.you' | translate}})</p>
 
-  <div class="element">
-    {{'detail_page.id' | translate}}:
-    <span>{{student.id}}</span>
-  </div>
-  <div class="element">
-    {{'detail_page.date' | translate}}:
-    <span>{{student.date}}</span>
-  </div>
-  <div class="element">
-    {{'detail_page.fname' | translate}}:
-    <input class="edit-field" [disabled]="!rights" [(ngModel)]="student.firstname">
-  </div>
-  <div class="element">
-    {{'detail_page.lname' | translate}}:
-    <input class="edit-field" [disabled]="!rights" [(ngModel)]="student.lastname">
-  </div>
-  <div class="element">
-    {{'detail_page.floor' | translate}}:
-    <input class="edit-field" type="number" [disabled]="!rights" [(ngModel)]="student.studfloor.Floor">
-  </div>
-  <div class="element">
-    {{'detail_page.room' | translate}}:
-    <input class="edit-field" type="number" [disabled]="!rights" [(ngModel)]="student.studroom.Room">
+  <div class="detail-information">
+    <div class="detail-student">
+      <div class="element">
+        {{'detail_page.id' | translate}}:
+        <span>{{student.id}}</span>
+      </div>
+      <div class="element">
+        {{'detail_page.date' | translate}}:
+        <span>{{student.date}}</span>
+      </div>
+      <div class="element">
+        {{'detail_page.fname' | translate}}:
+        <input class="edit-field" [disabled]="!rights" [(ngModel)]="student.firstname">
+      </div>
+      <div class="element">
+        {{'detail_page.lname' | translate}}:
+        <input class="edit-field" [disabled]="!rights" [(ngModel)]="student.lastname">
+      </div>
+      <div class="element">
+        {{'detail_page.floor' | translate}}:
+        <input class="edit-field" type="number" [disabled]="!rights" [(ngModel)]="student.studfloor.Floor">
+      </div>
+      <div class="element">
+        {{'detail_page.room' | translate}}:
+        <input class="edit-field" type="number" [disabled]="!rights" [(ngModel)]="student.studroom.Room">
+      </div>
+    </div>
+
+    <div class="detail-provision">
+      <p>{{'detail_page.provisions.title' | translate}}:</p>
+
+      <div class="element">
+        {{'detail_page.provisions.bedhseet' | translate}}:
+        <input class="edit-field provision-input" type="number" [disabled]="!rights" [(ngModel)]="provision.bedhseet">
+      </div>
+      <div class="element">
+        {{'detail_page.provisions.pillow' | translate}}:
+        <input class="edit-field provision-input" type="number" [disabled]="!rights" [(ngModel)]="provision.pillow">
+      </div>
+      <div class="element">
+        {{'detail_page.provisions.towel' | translate}}:
+        <input class="edit-field provision-input" type="number" [disabled]="!rights" [(ngModel)]="provision.towel">
+      </div>
+      <div class="element">
+        {{'detail_page.provisions.blanket' | translate}}:
+        <input class="edit-field provision-input" type="number" [disabled]="!rights" [(ngModel)]="provision.blanket">
+      </div>
+      <div class="element">
+        {{'detail_page.provisions.curtain' | translate}}:
+        <input class="edit-field provision-input" type="number" [disabled]="!rights" [(ngModel)]="provision.curtain">
+      </div>
+    </div>
   </div>
 
   <div class="buttons">

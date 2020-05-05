@@ -31,6 +31,14 @@
     "lname": "Last name",
     "floor": "Floor",
     "room": "Room",
+    "provisions": {
+      "title": "Student provisions",
+      "bedhseet": "Bedhseet",
+      "pillow": "Pillows",
+      "towel": "Towels",
+      "blanket": "Blankets",
+      "curtain": "Curtains"
+    },
     "button": {
       "delete": "Delete",
       "update": "Update info",
