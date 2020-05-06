@@ -16,6 +16,14 @@
     "title": "Sign In"
   },
   "main_page": {
+    "title": "Welcome to dorm",
+    "buttons": {
+      "students": "Students List",
+      "workers": "Workers List",
+      "rooms": "Rooms List"
+    }
+  },
+  "students_page": {
     "title": "Students",
     "search_label": "Search",
     "search_placeholder": "Search",
