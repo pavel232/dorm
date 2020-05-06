@@ -17,6 +17,7 @@ import { SearchPipe } from './pipes/search.pipe';
 import { AddPageComponent } from './pages/add-page/add-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotifierModule } from 'angular-notifier';
+import { StudentsPageComponent } from './pages/students-page/students-page.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -31,7 +32,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotFoundComponent,
     LoginPageComponent,
     SearchPipe,
-    AddPageComponent
+    AddPageComponent,
+    StudentsPageComponent
   ],
   imports: [
     TranslateModule.forRoot({

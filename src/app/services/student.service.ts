@@ -18,16 +18,18 @@ export class StudentService {
     return this.http.get<Student>(`${this.url}/student${id}`);
   }
 
-  public createStudent(data, token: string, type: string) {
+  public createStudent(data, provisionData: Provision, token: string) {
     this.http
-      .post(`${this.url}/${type}`, data, {
+      .post(`${this.url}/student`, data, {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           Authorization: token
         })
       })
       .subscribe(
-        () => {
+        (resp: any) => {
+          provisionData.id = resp.id;
+          this.createProvision(provisionData, token);
           this.notifierService.notify('success', 'New student successfully created!');
         },
         err => {
@@ -75,5 +77,25 @@ export class StudentService {
 
   public getProvision(id: string = ''): Observable<Provision> {
     return this.http.get<Provision>(`${this.url}/provisions${id}`);
+  }
+
+  public createProvision(data: Provision, token: string) {
+    console.log(data);
+    this.http
+      .post(`${this.url}/provisions`, data, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: token
+        })
+      })
+      .subscribe(
+        () => {
+          this.notifierService.notify('success', 'New provision successfully created!');
+        },
+        err => {
+          this.notifierService.notify('error', err.error.message);
+          console.error('Error: ', err.error);
+        }
+      );
   }
 }

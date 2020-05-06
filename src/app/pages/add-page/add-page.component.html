@@ -14,16 +14,9 @@
       (valueChanged)="setData('password', $event)"
     ></app-google-input>
 
-    <label class="create-worker" *ngIf="role==='admin'">
-      <input type="checkbox" name="isWorker"
-        [(ngModel)]="isWorker"
-        [disabled]="username!=='worker'"
-      >
-    {{'add_page.worker' | translate}}</label>
-
     <div class="separator"></div>
 
-    <div [hidden]="isWorker">
+    <div>
       <app-google-input
         [placeholder]="'add_page.first'"
         [label]="'add_page.first'"
