@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user.model';
 import { LoginService } from 'src/app/services/login.service';
 import { Login } from 'src/app/models/login.model';
 import { NotifierService } from 'angular-notifier';
+import { Provision } from 'src/app/models/provision.model';
 
 @Component({
   selector: 'app-add-page',
@@ -14,7 +15,6 @@ export class AddPageComponent implements OnInit {
   public token = '';
   public role: string;
   public isConfirm = false;
-  public isWorker = false;
   public cautionLabel = 'caution';
   public username: string;
   private password: string;
@@ -25,6 +25,15 @@ export class AddPageComponent implements OnInit {
     uuid: 1,
     studroom: { id: 1, room: 0 },
     studfloor: { id: 1, floor: 0 }
+  };
+
+  private provision: Provision = {
+    id: 0,
+    bedhseet: 1,
+    blanket: 1,
+    curtain: 1,
+    pillow: 1,
+    towel: 1
   };
 
   constructor(
@@ -66,10 +75,8 @@ export class AddPageComponent implements OnInit {
 
       this.loginService.signUp(data).subscribe(
         (r: any) => {
-          if (!this.isWorker) {
-            this.student.uuid = r.uuid;
-            this.studentService.createStudent(this.student, this.token);
-          }
+          this.student.uuid = r.uuid;
+          this.studentService.createStudent(this.student, this.provision, this.token);
         },
         err => {
           this.notifierService.notify('error', err.error.message);
@@ -86,25 +93,17 @@ export class AddPageComponent implements OnInit {
   }
 
   private checkFields(): boolean {
-    if (!this.isWorker) {
-      if (
-        !this.student.firstname ||
-        !this.student.lastname ||
-        !this.student.studfloor.floor ||
-        !this.student.studroom.room ||
-        !this.username ||
-        !this.password
-      ) {
-        return false;
-      } else {
-        return true;
-      }
+    if (
+      !this.student.firstname ||
+      !this.student.lastname ||
+      !this.student.studfloor.floor ||
+      !this.student.studroom.room ||
+      !this.username ||
+      !this.password
+    ) {
+      return false;
     } else {
-      if (!this.username || !this.password) {
-        return false;
-      } else {
-        return true;
-      }
+      return true;
     }
   }
 }

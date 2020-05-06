@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Student } from '../models/student.model';
 import { NotifierService } from 'angular-notifier';
 import { ServerMessage } from '../models/server-message.model';
+import { Provision } from '../models/provision.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class StudentService {
     return this.http.get<Student>(`${this.url}/student${id}`);
   }
 
-  public createStudent(data, token: string) {
+  public createStudent(data, provisionData: Provision, token: string) {
     this.http
       .post(`${this.url}/student`, data, {
         headers: new HttpHeaders({
@@ -26,7 +27,9 @@ export class StudentService {
         })
       })
       .subscribe(
-        () => {
+        (resp: any) => {
+          provisionData.id = resp.id;
+          this.createProvision(provisionData, token);
           this.notifierService.notify('success', 'New student successfully created!');
         },
         err => {
@@ -36,9 +39,9 @@ export class StudentService {
       );
   }
 
-  public deleteStudent(id: number, token: string) {
+  public deleteStudent(id: number, token: string, type: string) {
     this.http
-      .delete(`${this.url}/student/${id}`, {
+      .delete(`${this.url}/${type}/${id}`, {
         headers: new HttpHeaders({
           Authorization: token
         })
@@ -46,7 +49,6 @@ export class StudentService {
       .subscribe(
         (resp: ServerMessage) => {
           this.notifierService.notify('warning', resp.message);
-          window.history.back();
         },
         err => {
           this.notifierService.notify('error', err.error.message);
@@ -55,9 +57,9 @@ export class StudentService {
       );
   }
 
-  public updateStudent(id: number, data, token: string) {
+  public updateStudent(id: number, data, token: string, type: string) {
     this.http
-      .put(`${this.url}/student/${id}`, data, {
+      .put(`${this.url}/${type}/${id}`, data, {
         headers: new HttpHeaders({
           Authorization: token
         })
@@ -65,6 +67,30 @@ export class StudentService {
       .subscribe(
         (resp: ServerMessage) => {
           this.notifierService.notify('success', resp.message);
+        },
+        err => {
+          this.notifierService.notify('error', err.error.message);
+          console.error('Error: ', err.error);
+        }
+      );
+  }
+
+  public getProvision(id: string = ''): Observable<Provision> {
+    return this.http.get<Provision>(`${this.url}/provisions${id}`);
+  }
+
+  public createProvision(data: Provision, token: string) {
+    console.log(data);
+    this.http
+      .post(`${this.url}/provisions`, data, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: token
+        })
+      })
+      .subscribe(
+        () => {
+          this.notifierService.notify('success', 'New provision successfully created!');
         },
         err => {
           this.notifierService.notify('error', err.error.message);
