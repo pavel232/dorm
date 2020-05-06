@@ -6,10 +6,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RouterConstants } from './constants/router-constants';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AddPageComponent } from './pages/add-page/add-page.component';
+import { StudentsPageComponent } from './pages/students-page/students-page.component';
 
 const routes: Routes = [
   { path: RouterConstants.main.path, component: MainPageComponent },
   { path: RouterConstants.login.path, component: LoginPageComponent },
+  { path: RouterConstants.students.path, component: StudentsPageComponent },
   { path: RouterConstants.detail.path, component: DetailPageComponent },
   { path: RouterConstants.add.path, component: AddPageComponent },
   {

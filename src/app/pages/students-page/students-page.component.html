@@ -1,15 +1,15 @@
 <div class="wrapper">
   <div class="headline">
-    <h3>{{'main_page.title' | translate}}</h3>
+    <h3>{{'students_page.title' | translate}}</h3>
     <button class="add-new-button"
       *ngIf="rights"
       (click)="goAddPage()"
-    >{{'main_page.add_new' | translate}}</button>
+    >{{'students_page.add_new' | translate}}</button>
   </div>
 
   <app-google-input
-    [placeholder]="'main_page.search_placeholder'"
-    [label]="'main_page.search_label'"
+    [placeholder]="'students_page.search_placeholder'"
+    [label]="'students_page.search_label'"
     (valueChanged)="setSearchString($event)"
   ></app-google-input>
 

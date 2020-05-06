@@ -18,8 +18,14 @@ export class HeaderComponent implements OnInit {
     this.loginService.userName.subscribe((value: string) => (this.userName = value));
     this.loginService.isLogin.subscribe((value: boolean) => (this.isLogin = value));
 
+    const user: User = JSON.parse(localStorage.getItem('User'));
+
     if (this.loginService.checkUser()) {
-      this.router.navigateByUrl('/main');
+      if (user.role === 'admin' || user.role === 'worker') {
+        this.router.navigateByUrl('/main');
+      } else {
+        this.router.navigateByUrl('/students');
+      }
     } else {
       this.router.navigateByUrl('/login');
     }
