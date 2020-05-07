@@ -45,11 +45,6 @@
     </div>
   </div>
 
-  <app-caution-label
-    *ngIf="isConfirm"
-    [text]="cautionLabel"
-  ></app-caution-label>
-
   <div class="buttons">
     <button (click)="goBack()">{{'add_page.button.back' | translate}}</button>
     <button class="add-button" (click)="createStudent()">{{'add_page.button.create' | translate}}</button>

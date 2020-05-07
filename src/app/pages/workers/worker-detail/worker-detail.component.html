@@ -1,0 +1,46 @@
+<div class="wrapper">
+  <h3>{{'workers_page.detail.title' | translate}}</h3>
+
+  <p class="worker-name">{{worker.FirstName}} {{worker.LastName}}</p>
+
+  <div class="element">
+    {{'workers_page.create.first' | translate}}:
+    <input class="input-field" [disabled]="!rights" [(ngModel)]="worker.FirstName">
+  </div>
+  <div class="element">
+    {{'workers_page.create.last' | translate}}:
+    <input class="input-field" [disabled]="!rights" [(ngModel)]="worker.LastName">
+  </div>
+  <div class="element">
+    {{'workers_page.create.floor' | translate}}:
+    <input class="input-field" [disabled]="!rights" [(ngModel)]="worker.WorkFloor.Floor.Floor">
+  </div>
+  <div class="element">
+    {{'workers_page.create.work_days' | translate}}:
+    <select class="input-field select" name="days" required
+      [(ngModel)]="worker.WorkDays"
+    >
+      <option>{{'workers_page.create.days.mon' | translate}}</option>
+      <option>{{'workers_page.create.days.tue' | translate}}</option>
+      <option>{{'workers_page.create.days.wed' | translate}}</option>
+      <option>{{'workers_page.create.days.thu' | translate}}</option>
+      <option>{{'workers_page.create.days.fri' | translate}}</option>
+      <option>{{'workers_page.create.days.sat' | translate}}</option>
+      <option>{{'workers_page.create.days.sun' | translate}}</option>
+    </select>
+  </div>
+
+  <div class="buttons">
+    <button (click)="goBack()">{{'detail_page.button.back' | translate}}</button>
+
+    <button class="update-button"
+      *ngIf="rights"
+      (click)="onUpdate()"
+    >{{'detail_page.button.update' | translate}}</button>
+
+    <button class="delete-button"
+      *ngIf="rights"
+      (click)="onDelete()"
+    >{{'detail_page.button.delete' | translate}}</button>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,11 +21,7 @@ export class HeaderComponent implements OnInit {
     const user: User = JSON.parse(localStorage.getItem('User'));
 
     if (this.loginService.checkUser()) {
-      if (user.role === 'admin' || user.role === 'worker') {
-        this.router.navigateByUrl('/main');
-      } else {
-        this.router.navigateByUrl('/students');
-      }
+      this.router.navigateByUrl('/main');
     } else {
       this.router.navigateByUrl('/login');
     }

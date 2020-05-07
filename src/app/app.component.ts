@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LoginService } from './services/login.service';
-import { ServerMessage } from './models/server-message.model';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +9,5 @@ import { ServerMessage } from './models/server-message.model';
 export class AppComponent {
   public title = 'dorm';
 
-  constructor(translate: TranslateService, private loginService: LoginService) {}
+  constructor(translate: TranslateService) {}
 }

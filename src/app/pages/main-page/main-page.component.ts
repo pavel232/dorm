@@ -14,4 +14,8 @@ export class MainPageComponent implements OnInit {
   public goToStudents(): void {
     this.router.navigateByUrl('/students');
   }
+
+  public goToWorkers(): void {
+    this.router.navigateByUrl('/workers');
+  }
 }

@@ -7,6 +7,9 @@ import { RouterConstants } from './constants/router-constants';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AddPageComponent } from './pages/add-page/add-page.component';
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
+import { WorkersPageComponent } from './pages/workers/workers-page/workers-page.component';
+import { WorkerDetailComponent } from './pages/workers/worker-detail/worker-detail.component';
+import { WorkerCreateComponent } from './pages/workers/worker-create/worker-create.component';
 
 const routes: Routes = [
   { path: RouterConstants.main.path, component: MainPageComponent },
@@ -14,6 +17,9 @@ const routes: Routes = [
   { path: RouterConstants.students.path, component: StudentsPageComponent },
   { path: RouterConstants.detail.path, component: DetailPageComponent },
   { path: RouterConstants.add.path, component: AddPageComponent },
+  { path: RouterConstants.workers.path, component: WorkersPageComponent },
+  { path: RouterConstants.workerDetail.path, component: WorkerDetailComponent },
+  { path: RouterConstants.workerCreate.path, component: WorkerCreateComponent },
   {
     path: RouterConstants.initial.path,
     redirectTo: RouterConstants.main.path,

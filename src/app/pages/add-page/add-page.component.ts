@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentService } from 'src/app/services/student.service';
+import { QueryService } from 'src/app/services/query/query.service';
 import { User } from 'src/app/models/user.model';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/services/login/login.service';
 import { Login } from 'src/app/models/login.model';
 import { NotifierService } from 'angular-notifier';
 import { Provision } from 'src/app/models/provision.model';
@@ -28,16 +28,16 @@ export class AddPageComponent implements OnInit {
   };
 
   private provision: Provision = {
-    id: 0,
-    bedhseet: 1,
-    blanket: 1,
-    curtain: 1,
-    pillow: 1,
-    towel: 1
+    ID: 0,
+    Bedsheet: 1,
+    Blanket: 1,
+    Curtain: 1,
+    Pillow: 1,
+    Towel: 1
   };
 
   constructor(
-    private studentService: StudentService,
+    private queryService: QueryService,
     private loginService: LoginService,
     private notifierService: NotifierService
   ) {}
@@ -76,7 +76,7 @@ export class AddPageComponent implements OnInit {
       this.loginService.signUp(data).subscribe(
         (r: any) => {
           this.student.uuid = r.uuid;
-          this.studentService.createStudent(this.student, this.provision, this.token);
+          this.queryService.createSubject('student', this.student, this.token, this.provision);
         },
         err => {
           this.notifierService.notify('error', err.error.message);

@@ -1,26 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Student } from '../models/student.model';
 import { NotifierService } from 'angular-notifier';
-import { ServerMessage } from '../models/server-message.model';
-import { Provision } from '../models/provision.model';
+import { ServerMessage } from '../../models/server-message.model';
+import { Provision } from '../../models/provision.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StudentService {
+export class QueryService {
   private url = 'http://localhost:8080';
 
   constructor(private http: HttpClient, private notifierService: NotifierService) {}
 
-  public getStudent(id: string = ''): Observable<Student> {
-    return this.http.get<Student>(`${this.url}/student${id}`);
+  public getList(type: string, id: string = '') {
+    return this.http.get(`${this.url}/${type}${id}`);
   }
 
-  public createStudent(data, provisionData: Provision, token: string) {
+  public createSubject(type: string, data, token: string, provisionData?: Provision) {
     this.http
-      .post(`${this.url}/student`, data, {
+      .post(`${this.url}/${type}`, data, {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           Authorization: token
@@ -28,18 +27,20 @@ export class StudentService {
       })
       .subscribe(
         (resp: any) => {
-          provisionData.id = resp.id;
-          this.createProvision(provisionData, token);
-          this.notifierService.notify('success', 'New student successfully created!');
+          if (type === 'student') {
+            provisionData.ID = resp.id;
+            this.createProvision(provisionData, token);
+          }
+          this.notifierService.notify('success', `New ${type} successfully created!`);
         },
         err => {
-          this.notifierService.notify('error', err.error.message);
+          this.notifierService.notify('error', err.error.Message);
           console.error('Error: ', err.error);
         }
       );
   }
 
-  public deleteStudent(id: number, token: string, type: string) {
+  public deleteSubject(type: string, id: number, token: string) {
     this.http
       .delete(`${this.url}/${type}/${id}`, {
         headers: new HttpHeaders({
@@ -48,16 +49,16 @@ export class StudentService {
       })
       .subscribe(
         (resp: ServerMessage) => {
-          this.notifierService.notify('warning', resp.message);
+          this.notifierService.notify('warning', resp.Message);
         },
         err => {
-          this.notifierService.notify('error', err.error.message);
+          this.notifierService.notify('error', err.error.Message);
           console.error('Error: ', err.error);
         }
       );
   }
 
-  public updateStudent(id: number, data, token: string, type: string) {
+  public updateSubject(type: string, id: number, data, token: string) {
     this.http
       .put(`${this.url}/${type}/${id}`, data, {
         headers: new HttpHeaders({
@@ -66,10 +67,10 @@ export class StudentService {
       })
       .subscribe(
         (resp: ServerMessage) => {
-          this.notifierService.notify('success', resp.message);
+          this.notifierService.notify('success', resp.Message);
         },
         err => {
-          this.notifierService.notify('error', err.error.message);
+          this.notifierService.notify('error', err.error.Message);
           console.error('Error: ', err.error);
         }
       );
@@ -93,7 +94,7 @@ export class StudentService {
           this.notifierService.notify('success', 'New provision successfully created!');
         },
         err => {
-          this.notifierService.notify('error', err.error.message);
+          this.notifierService.notify('error', err.error.Message);
           console.error('Error: ', err.error);
         }
       );

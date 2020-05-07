@@ -5,14 +5,14 @@ import { Student } from '../models/student.model';
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
-  transform(studentsList: Student[], keyWord: string = ''): Student[] {
+  transform(list, keyWord: string = '') {
     if (!keyWord.trim()) {
-      return studentsList;
+      return list;
     } else {
-      return studentsList.filter(student => {
+      return list.filter(element => {
         return (
-          student.firstname.toLowerCase().indexOf(keyWord.toLowerCase()) !== -1 ||
-          student.lastname.toLowerCase().indexOf(keyWord.toLowerCase()) !== -1
+          element.firstName.toLowerCase().indexOf(keyWord.toLowerCase()) !== -1 ||
+          element.lastName.toLowerCase().indexOf(keyWord.toLowerCase()) !== -1
         );
       });
     }

@@ -66,5 +66,31 @@
     "floor": "Floor",
     "room": "Room",
     "worker": "Create worker"
+  },
+  "workers_page": {
+    "title": "Workers",
+    "search_label": "Search",
+    "search_placeholder": "Search",
+    "empty": "List is empty...",
+    "add_new": "Add new worker",
+    "detail": {
+      "title": "Worker detail"
+    },
+    "create": {
+      "title": "Create new worker",
+      "first": "First name",
+      "last": "Last name",
+      "floor": "Floor",
+      "work_days": "Work days",
+      "days": {
+        "mon": "Monday",
+        "tue": "Tuesday",
+        "wed": "Wednesday",
+        "thu": "Thursday",
+        "fri": "Friday",
+        "sat": "Saturday",
+        "sun": "Sunday"
+      }
+    }
   }
 }

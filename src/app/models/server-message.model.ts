@@ -1,5 +1,5 @@
 export interface ServerMessage {
-  error: boolean;
-  message: string;
-  status: number;
+  Error: boolean;
+  Message: string;
+  Status: number;
 }
