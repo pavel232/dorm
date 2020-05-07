@@ -32,7 +32,7 @@ export class StudentsPageComponent implements OnInit {
         this.studentsList = resp;
       },
       err => {
-        this.notifierService.notify('error', err.error.message);
+        this.notifierService.notify('error', err.error.Message);
         console.error('Error: ', err.error);
       }
     );

@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="headline">
+    <h3>{{'rooms_page.title' | translate}}</h3>
+    <button class="add-new-button"
+      *ngIf="rights"
+      (click)="goAddPage()"
+    >{{'rooms_page.add_new' | translate}}</button>
+  </div>
+
+  <app-google-input
+    [placeholder]="'rooms_page.search_placeholder'"
+    [label]="'rooms_page.search_label'"
+    (valueChanged)="setSearchString($event)"
+  ></app-google-input>
+
+  <ol class="list" *ngIf="roomsList.length; else noList">
+    <li
+      *ngFor="let room of roomsList | search:searchString let i = index"
+      (click)="goDetailPage(room)"
+    >
+      <p class="list__title">{{i + 1}}. {{room.Room}}</p>
+    </li>
+  </ol>
+
+  <ng-template #noList>
+    <p>{{'rooms_page.empty' | translate}}</p>
+  </ng-template>
+</div>
+

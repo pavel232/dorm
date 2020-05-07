@@ -13,12 +13,12 @@
     (valueChanged)="setSearchString($event)"
   ></app-google-input>
 
-  <ol class="students-list" *ngIf="workersList.length; else noList">
+  <ol class="list" *ngIf="workersList.length; else noList">
     <li
       *ngFor="let worker of workersList | search:searchString let i = index"
       (click)="goDetailPage(worker)"
     >
-      <p class="students-list__title">{{i + 1}}. {{worker.FirstName}} {{worker.LastName}}</p>
+      <p class="list__title">{{i + 1}}. {{worker.FirstName}} {{worker.LastName}}</p>
     </li>
   </ol>
 

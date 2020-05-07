@@ -1,7 +1,7 @@
 export interface Room {
-  id: number;
-  room: number;
-  chairs: number;
-  tables: number;
-  shelves: number;
+  ID?: number;
+  Room: number;
+  Chairs: number;
+  Tables: number;
+  Shelves: number;
 }

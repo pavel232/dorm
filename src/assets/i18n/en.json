@@ -92,5 +92,22 @@
         "sun": "Sunday"
       }
     }
+  },
+  "rooms_page": {
+    "title": "Rooms",
+    "add_new": "Add new room",
+    "search_label": "Search",
+    "search_placeholder": "Search",
+    "empty": "List is empty...",
+    "detail": {
+      "title": "Room detail"
+    },
+    "create": {
+      "title": "Create new room",
+      "room": "Number of room",
+      "chairs": "Chairs",
+      "tables": "Tables",
+      "shelves": "Shelves"
+    }
   }
 }

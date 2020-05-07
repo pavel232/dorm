@@ -5,15 +5,22 @@ import { Student } from '../models/student.model';
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
-  transform(list, keyWord: string = '') {
+  transform(list: any, keyWord: string = '') {
     if (!keyWord.trim()) {
       return list;
     } else {
       return list.filter(element => {
-        return (
-          element.firstName.toLowerCase().indexOf(keyWord.toLowerCase()) !== -1 ||
-          element.lastName.toLowerCase().indexOf(keyWord.toLowerCase()) !== -1
-        );
+        if (element.FirstName) {
+          return element.FirstName.toLowerCase().indexOf(keyWord.toLowerCase()) !== -1;
+        } else if (element.LastName) {
+          return element.LastName.toLowerCase().indexOf(keyWord.toLowerCase()) !== -1;
+        } else if (element.Room) {
+          return (
+            element.Room.toString()
+              .toLowerCase()
+              .indexOf(keyWord.toLowerCase()) !== -1
+          );
+        }
       });
     }
   }

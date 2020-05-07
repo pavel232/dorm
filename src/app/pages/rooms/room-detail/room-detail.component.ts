@@ -1,29 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { Worker } from 'src/app/models/worker.model';
-import { User } from 'src/app/models/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { QueryService } from 'src/app/services/query/query.service';
 import { NotifierService } from 'angular-notifier';
+import { User } from 'src/app/models/user.model';
+import { Room } from 'src/app/models/room.model';
 
 @Component({
-  selector: 'app-worker-detail',
-  templateUrl: './worker-detail.component.html',
-  styleUrls: ['./worker-detail.component.scss']
+  selector: 'app-room-detail',
+  templateUrl: './room-detail.component.html',
+  styleUrls: ['./room-detail.component.scss']
 })
-export class WorkerDetailComponent implements OnInit {
+export class RoomDetailComponent implements OnInit {
   public rights: boolean;
   private token = '';
-  public worker: Worker = {
-    ID: 0,
-    FirstName: '',
-    LastName: '',
-    WorkDays: '',
-    WorkFloor: {
-      Floor: {
-        Floor: 1,
-        Code: 1
-      }
-    }
+
+  public room: Room = {
+    ID: null,
+    Room: null,
+    Chairs: null,
+    Tables: null,
+    Shelves: null
   };
 
   constructor(
@@ -37,11 +33,11 @@ export class WorkerDetailComponent implements OnInit {
     this.rights = user.rights;
     this.token = user.token;
 
-    const workerId = `/${this.routerParams.snapshot.queryParams.id}`;
+    const roomId = `/${this.routerParams.snapshot.queryParams.id}`;
 
-    this.queryService.getList('worker', workerId).subscribe(
-      (data: Worker) => {
-        this.worker = data;
+    this.queryService.getList('room', roomId).subscribe(
+      (data: Room) => {
+        this.room = data;
       },
       err => {
         this.notifierService.notify('error', err.error.Message);
@@ -51,12 +47,12 @@ export class WorkerDetailComponent implements OnInit {
   }
 
   public onDelete() {
-    this.queryService.deleteSubject('worker', this.worker.ID, this.token);
+    this.queryService.deleteSubject('room', this.room.ID, this.token);
     this.goBack();
   }
 
   public onUpdate() {
-    this.queryService.updateSubject('worker', this.worker.ID, this.worker, this.token);
+    this.queryService.updateSubject('room', this.room.ID, this.room, this.token);
   }
 
   public goBack() {
