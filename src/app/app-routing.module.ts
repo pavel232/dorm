@@ -10,6 +10,9 @@ import { StudentsPageComponent } from './pages/students-page/students-page.compo
 import { WorkersPageComponent } from './pages/workers/workers-page/workers-page.component';
 import { WorkerDetailComponent } from './pages/workers/worker-detail/worker-detail.component';
 import { WorkerCreateComponent } from './pages/workers/worker-create/worker-create.component';
+import { RoomsPageComponent } from './pages/rooms/rooms-page/rooms-page.component';
+import { RoomDetailComponent } from './pages/rooms/room-detail/room-detail.component';
+import { RoomCreateComponent } from './pages/rooms/room-create/room-create.component';
 
 const routes: Routes = [
   { path: RouterConstants.main.path, component: MainPageComponent },
@@ -20,6 +23,9 @@ const routes: Routes = [
   { path: RouterConstants.workers.path, component: WorkersPageComponent },
   { path: RouterConstants.workerDetail.path, component: WorkerDetailComponent },
   { path: RouterConstants.workerCreate.path, component: WorkerCreateComponent },
+  { path: RouterConstants.rooms.path, component: RoomsPageComponent },
+  { path: RouterConstants.roomDetail.path, component: RoomDetailComponent },
+  { path: RouterConstants.roomCreate.path, component: RoomCreateComponent },
   {
     path: RouterConstants.initial.path,
     redirectTo: RouterConstants.main.path,

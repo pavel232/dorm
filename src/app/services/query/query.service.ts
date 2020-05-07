@@ -13,7 +13,7 @@ export class QueryService {
 
   constructor(private http: HttpClient, private notifierService: NotifierService) {}
 
-  public getList(type: string, id: string = '') {
+  public getList(type: string, id: string = ''): any {
     return this.http.get(`${this.url}/${type}${id}`);
   }
 

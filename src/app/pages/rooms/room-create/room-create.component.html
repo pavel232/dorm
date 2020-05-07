@@ -1,0 +1,35 @@
+<form class="wrapper" (ngSubmit)="createRoom()" #createForm="ngForm">
+  <h3>{{'rooms_page.create.title' | translate}}</h3>
+
+    <div class="element">
+      {{'rooms_page.create.room' | translate}}:
+      <input class="input-field" name="room" type="number" required
+        [(ngModel)]="room.Room"
+      >
+    </div>
+    <div class="element">
+      {{'rooms_page.create.chairs' | translate}}:
+      <input class="input-field" name="chairs" type="number" required
+        [(ngModel)]="room.Chairs"
+      >
+    </div>
+    <div class="element">
+      {{'rooms_page.create.tables' | translate}}:
+      <input class="input-field" name="tables" type="number" required
+        [(ngModel)]="room.Tables"
+      >
+    </div>
+    <div class="element">
+      {{'rooms_page.create.shelves' | translate}}:
+      <input class="input-field" name="shelves" type="number" required
+        [(ngModel)]="room.Shelves"
+      >
+    </div>
+
+  <div class="buttons">
+    <button (click)="goBack()" type="button">{{'add_page.button.back' | translate}}</button>
+    <button class="add-button" type="submit"
+      [disabled]="createForm.form.invalid"
+    >{{'add_page.button.create' | translate}}</button>
+  </div>
+</form>

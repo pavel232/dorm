@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <h3>{{'rooms_page.detail.title' | translate}}</h3>
+
+  <div class="element">
+    {{'rooms_page.create.room' | translate}}:
+    <input class="input-field" [disabled]="!rights" [(ngModel)]="room.Room">
+  </div>
+  <div class="element">
+    {{'rooms_page.create.chairs' | translate}}:
+    <input class="input-field" [disabled]="!rights" [(ngModel)]="room.Chairs">
+  </div>
+  <div class="element">
+    {{'rooms_page.create.tables' | translate}}:
+    <input class="input-field" [disabled]="!rights" [(ngModel)]="room.Tables">
+  </div>
+  <div class="element">
+    {{'rooms_page.create.shelves' | translate}}:
+    <input class="input-field" [disabled]="!rights" [(ngModel)]="room.Shelves">
+  </div>
+
+  <div class="buttons">
+    <button (click)="goBack()">{{'detail_page.button.back' | translate}}</button>
+
+    <button class="update-button"
+      *ngIf="rights"
+      (click)="onUpdate()"
+    >{{'detail_page.button.update' | translate}}</button>
+
+    <button class="delete-button"
+      *ngIf="rights"
+      (click)="onDelete()"
+    >{{'detail_page.button.delete' | translate}}</button>
+  </div>
+</div>
