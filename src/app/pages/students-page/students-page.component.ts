@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/app/models/student.model';
 import { Router } from '@angular/router';
-import { StudentService } from 'src/app/services/student.service';
+import { QueryService } from 'src/app/services/query/query.service';
 import { NotifierService } from 'angular-notifier';
 import { User } from 'src/app/models/user.model';
 
@@ -12,13 +12,13 @@ import { User } from 'src/app/models/user.model';
 })
 export class StudentsPageComponent implements OnInit {
   public searchString = '';
-  public studentsList: Student;
+  public studentsList: Student[] = [];
   public rights = false;
   public uuid: number;
 
   constructor(
     private router: Router,
-    private studentService: StudentService,
+    private queryService: QueryService,
     private notifierService: NotifierService
   ) {}
 
@@ -27,8 +27,8 @@ export class StudentsPageComponent implements OnInit {
     this.rights = user.rights;
     this.uuid = user.uuid;
 
-    this.studentService.getStudent().subscribe(
-      resp => {
+    this.queryService.getList('student').subscribe(
+      (resp: Student[]) => {
         this.studentsList = resp;
       },
       err => {
@@ -43,9 +43,9 @@ export class StudentsPageComponent implements OnInit {
   }
 
   public goDetailPage(student: Student): void {
-    this.router.navigate(['./detail', student.id], {
+    this.router.navigate(['/detail', student.ID], {
       queryParams: {
-        id: student.id
+        id: student.ID
       }
     });
   }

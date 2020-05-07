@@ -13,15 +13,19 @@
     (valueChanged)="setSearchString($event)"
   ></app-google-input>
 
-  <ol class="students-list">
+  <ol class="students-list" *ngIf="studentsList.length; else noList">
     <li
       *ngFor="let student of studentsList | search:searchString let i = index"
       (click)="goDetailPage(student)"
       [className]="student.uuid === uuid ? 'selected' : ''"
     >
-      <p class="students-list__title">{{i + 1}}. {{student.firstname}} {{student.lastname}}</p>
-      <p class="students-list__text">Room {{student.studroom.Room}}</p>
+      <p class="students-list__title">{{i + 1}}. {{student.FirstName}} {{student.LastName}}</p>
+      <p class="students-list__text">Room {{student.StudRoom.Room}}</p>
     </li>
   </ol>
+
+  <ng-template #noList>
+    <p>{{'students_page.empty' | translate}}</p>
+  </ng-template>
 </div>
 

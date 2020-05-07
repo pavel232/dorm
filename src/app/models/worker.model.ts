@@ -1,17 +1,17 @@
 export interface Worker {
-  id: number;
-  firstname: string;
-  lastname: string;
-  Workdays: string;
-  Workflor: Workfloor;
+  ID?: number;
+  FirstName: string;
+  LastName: string;
+  WorkDays: string;
+  WorkFloor: WorkFloor;
 }
 
-interface Workfloor {
-  id: number;
+interface WorkFloor {
+  ID?: number;
   Floor: Floor;
 }
 
 interface Floor {
-  id: number;
-  code: number;
+  Floor: number;
+  Code: number;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/models/student.model';
-import { StudentService } from 'src/app/services/student.service';
+import { QueryService } from 'src/app/services/query/query.service';
 import { User } from 'src/app/models/user.model';
 import { NotifierService } from 'angular-notifier';
 import { Provision } from 'src/app/models/provision.model';
@@ -13,30 +13,30 @@ import { Provision } from 'src/app/models/provision.model';
 })
 export class DetailPageComponent implements OnInit {
   public student: Student = {
-    id: 0,
-    date: '',
-    firstname: '',
-    lastname: '',
-    uuid: 0,
-    studfloor: { id: 0, Floor: 0 },
-    studroom: { id: 0, Room: 0 }
+    ID: 0,
+    Date: '',
+    FirstName: '',
+    LastName: '',
+    UUID: 0,
+    StudFloor: { ID: 0, Floor: 0 },
+    StudRoom: { ID: 0, Room: 0 }
   };
   public provision: Provision = {
-    id: 0,
-    bedhseet: 0,
-    blanket: 0,
-    curtain: 0,
-    pillow: 0,
-    towel: 0
+    ID: 0,
+    Bedsheet: 0,
+    Blanket: 0,
+    Curtain: 0,
+    Pillow: 0,
+    Towel: 0
   };
 
   public rights = false;
-  public token = '';
+  private token = '';
   public uuid: number;
 
   constructor(
     private routerParams: ActivatedRoute,
-    private studentService: StudentService,
+    private queryService: QueryService,
     private notifierService: NotifierService
   ) {}
 
@@ -48,8 +48,8 @@ export class DetailPageComponent implements OnInit {
 
     const studentId = `/${this.routerParams.snapshot.queryParams.id}`;
 
-    this.studentService.getStudent(studentId).subscribe(
-      data => {
+    this.queryService.getList('student', studentId).subscribe(
+      (data: Student) => {
         this.student = data;
       },
       err => {
@@ -58,10 +58,9 @@ export class DetailPageComponent implements OnInit {
       }
     );
 
-    this.studentService.getProvision(studentId).subscribe(
-      data => {
+    this.queryService.getProvision(studentId).subscribe(
+      (data: Provision) => {
         this.provision = data;
-        console.log(this.provision);
       },
       err => {
         this.notifierService.notify('error', err.error.message);
@@ -71,14 +70,14 @@ export class DetailPageComponent implements OnInit {
   }
 
   public onDelete() {
-    this.studentService.deleteStudent(this.student.id, this.token, 'student');
-    this.studentService.deleteStudent(this.student.id, this.token, 'provisions');
+    this.queryService.deleteSubject('student', this.student.ID, this.token);
+    this.queryService.deleteSubject('provisions', this.student.ID, this.token);
     this.goBack();
   }
 
   public onUpdate() {
-    this.studentService.updateStudent(this.student.id, this.student, this.token, 'student');
-    this.studentService.updateStudent(this.student.id, this.provision, this.token, 'provisions');
+    this.queryService.updateSubject('student', this.student.ID, this.student, this.token);
+    this.queryService.updateSubject('provisions', this.student.ID, this.provision, this.token);
   }
 
   public goBack() {

@@ -1,0 +1,43 @@
+<form class="wrapper" (ngSubmit)="createWorker()" #createForm="ngForm">
+  <h3>{{'workers_page.create.title' | translate}}</h3>
+
+    <div class="element">
+      {{'workers_page.create.first' | translate}}:
+      <input class="input-field" name="firstName" required
+        [(ngModel)]="worker.FirstName"
+      >
+    </div>
+    <div class="element">
+      {{'workers_page.create.last' | translate}}:
+      <input class="input-field" name="lastName" required
+        [(ngModel)]="worker.LastName"
+      >
+    </div>
+    <div class="element">
+      {{'workers_page.create.floor' | translate}}:
+      <input class="input-field" type="number" name="floor" required
+        [(ngModel)]="worker.WorkFloor.Floor.Floor"
+      >
+    </div>
+    <div class="element">
+      {{'workers_page.create.work_days' | translate}}:
+      <select class="input-field select" name="days" required
+        [(ngModel)]="worker.WorkDays"
+      >
+        <option>{{'workers_page.create.days.mon' | translate}}</option>
+        <option>{{'workers_page.create.days.tue' | translate}}</option>
+        <option>{{'workers_page.create.days.wed' | translate}}</option>
+        <option>{{'workers_page.create.days.thu' | translate}}</option>
+        <option>{{'workers_page.create.days.fri' | translate}}</option>
+        <option>{{'workers_page.create.days.sat' | translate}}</option>
+        <option>{{'workers_page.create.days.sun' | translate}}</option>
+      </select>
+    </div>
+
+  <div class="buttons">
+    <button (click)="goBack()" type="button">{{'add_page.button.back' | translate}}</button>
+    <button class="add-button" type="submit"
+      [disabled]="createForm.form.invalid"
+    >{{'add_page.button.create' | translate}}</button>
+  </div>
+</form>

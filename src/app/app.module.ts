@@ -18,6 +18,9 @@ import { AddPageComponent } from './pages/add-page/add-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotifierModule } from 'angular-notifier';
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
+import { WorkersPageComponent } from './pages/workers/workers-page/workers-page.component';
+import { WorkerDetailComponent } from './pages/workers/worker-detail/worker-detail.component';
+import { WorkerCreateComponent } from './pages/workers/worker-create/worker-create.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -33,7 +36,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginPageComponent,
     SearchPipe,
     AddPageComponent,
-    StudentsPageComponent
+    StudentsPageComponent,
+    WorkersPageComponent,
+    WorkerDetailComponent,
+    WorkerCreateComponent
   ],
   imports: [
     TranslateModule.forRoot({

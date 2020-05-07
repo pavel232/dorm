@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="headline">
+    <h3>{{'workers_page.title' | translate}}</h3>
+    <button class="add-new-button"
+      *ngIf="rights"
+      (click)="goAddPage()"
+    >{{'workers_page.add_new' | translate}}</button>
+  </div>
+
+  <app-google-input
+    [placeholder]="'workers_page.search_placeholder'"
+    [label]="'workers_page.search_label'"
+    (valueChanged)="setSearchString($event)"
+  ></app-google-input>
+
+  <ol class="students-list" *ngIf="workersList.length; else noList">
+    <li
+      *ngFor="let worker of workersList | search:searchString let i = index"
+      (click)="goDetailPage(worker)"
+    >
+      <p class="students-list__title">{{i + 1}}. {{worker.FirstName}} {{worker.LastName}}</p>
+    </li>
+  </ol>
+
+  <ng-template #noList>
+    <p>{{'workers_page.empty' | translate}}</p>
+  </ng-template>
+</div>
+

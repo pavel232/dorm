@@ -1,7 +1,7 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Login } from '../models/login.model';
-import { User } from '../models/user.model';
+import { Login } from '../../models/login.model';
+import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 
@@ -48,7 +48,7 @@ export class LoginService {
         }
       },
       err => {
-        this.notifierService.notify('error', err.error.message);
+        this.notifierService.notify('error', err.error.Message);
         console.error('Error: ', err.error);
       }
     );

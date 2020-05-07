@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CautionLabelComponent } from './caution-label.component';
+import { WorkersPageComponent } from './workers-page.component';
 
-describe('CautionLabelComponent', () => {
-  let component: CautionLabelComponent;
-  let fixture: ComponentFixture<CautionLabelComponent>;
+describe('WorkersPageComponent', () => {
+  let component: WorkersPageComponent;
+  let fixture: ComponentFixture<WorkersPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CautionLabelComponent]
+      declarations: [WorkersPageComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CautionLabelComponent);
+    fixture = TestBed.createComponent(WorkersPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
