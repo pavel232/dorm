@@ -1,0 +1,94 @@
+<form class="wrapper" (ngSubmit)="createStudent()" #createForm="ngForm">
+  <h3>{{'students_page.create.title' | translate}}</h3>
+
+  <div class="inputs-container">
+    <div class="element login">
+      {{'students_page.create.username' | translate}}:
+      <input class="input-field" name="username" required
+        [(ngModel)]="user.username"
+      >
+    </div>
+    <div class="element login">
+      {{'students_page.create.password' | translate}}:
+      <input class="input-field" name="password" type="password" required
+        [(ngModel)]="user.password"
+      >
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="student-information">
+      <div>
+        <p class="information-title">{{'students_page.create.information' | translate}}</p>
+
+        <div class="element">
+          {{'students_page.create.first' | translate}}:
+          <input class="input-field" name="firstName" required
+            [(ngModel)]="student.FirstName"
+          >
+        </div>
+        <div class="element">
+          {{'students_page.create.last' | translate}}:
+          <input class="input-field" name="lastName" required
+            [(ngModel)]="student.LastName"
+          >
+        </div>
+        <div class="element">
+          {{'students_page.create.floor' | translate}}:
+          <input class="input-field" name="floor" type="number" required
+            [(ngModel)]="student.StudFloor.Floor"
+          >
+        </div>
+        <div class="element">
+          {{'students_page.create.room' | translate}}:
+          <input class="input-field" name="room" type="number" required
+            [(ngModel)]="student.StudRoom.Room"
+          >
+        </div>
+      </div>
+
+      <div>
+        <p class="information-title">{{'students_page.create.provision' | translate}}</p>
+
+        <div class="element">
+          {{'students_page.create.bedsheet' | translate}}:
+          <input class="input-field provision-input" name="bedsheet" type="number" required
+            [(ngModel)]="provision.Bedsheet"
+          >
+        </div>
+        <div class="element">
+          {{'students_page.create.blanket' | translate}}:
+          <input class="input-field provision-input" name="blanket" type="number" required
+            [(ngModel)]="provision.Blanket"
+          >
+        </div>
+        <div class="element">
+          {{'students_page.create.curtain' | translate}}:
+          <input class="input-field provision-input" name="curtain" type="number" required
+            [(ngModel)]="provision.Curtain"
+          >
+        </div>
+        <div class="element">
+          {{'students_page.create.pillow' | translate}}:
+          <input class="input-field provision-input" name="pillow" type="number" required
+            [(ngModel)]="provision.Pillow"
+          >
+        </div>
+        <div class="element">
+          {{'students_page.create.towel' | translate}}:
+          <input class="input-field provision-input" name="towel" type="number" required
+            [(ngModel)]="provision.Towel"
+          >
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button (click)="goBack()" type="button">{{'add_page.button.back' | translate}}</button>
+    <button class="add-button" type="submit"
+      [disabled]="createForm.form.invalid"
+    >{{'add_page.button.create' | translate}}</button>
+  </div>
+</form>
