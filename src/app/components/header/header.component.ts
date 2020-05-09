@@ -18,6 +18,10 @@ export class HeaderComponent implements OnInit {
     this.loginService.userName.subscribe((value: string) => (this.userName = value));
     this.loginService.isLogin.subscribe((value: boolean) => (this.isLogin = value));
 
+    this.goMain();
+  }
+
+  public goMain(): void {
     if (this.loginService.checkUser()) {
       this.router.navigateByUrl('/main');
     } else {
