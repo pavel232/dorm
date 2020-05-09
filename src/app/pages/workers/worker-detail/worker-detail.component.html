@@ -18,6 +18,7 @@
   <div class="element">
     {{'workers_page.create.work_days' | translate}}:
     <select class="input-field select" name="days" required
+      [disabled]="!rights"
       [(ngModel)]="worker.WorkDays"
     >
       <option>{{'workers_page.create.days.mon' | translate}}</option>

@@ -43,7 +43,7 @@ export class StudentsPageComponent implements OnInit {
   }
 
   public goDetailPage(student: Student): void {
-    this.router.navigate(['/detail', student.ID], {
+    this.router.navigate(['/student-detail', student.ID], {
       queryParams: {
         id: student.ID
       }
@@ -51,6 +51,6 @@ export class StudentsPageComponent implements OnInit {
   }
 
   public goAddPage() {
-    this.router.navigateByUrl('/add');
+    this.router.navigateByUrl('/student-create');
   }
 }

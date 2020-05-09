@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
-import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared-module.module';
@@ -14,16 +13,17 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SearchPipe } from './pipes/search.pipe';
-import { AddPageComponent } from './pages/add-page/add-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotifierModule } from 'angular-notifier';
-import { StudentsPageComponent } from './pages/students-page/students-page.component';
+import { StudentsPageComponent } from './pages/students/students-page/students-page.component';
 import { WorkersPageComponent } from './pages/workers/workers-page/workers-page.component';
 import { WorkerDetailComponent } from './pages/workers/worker-detail/worker-detail.component';
 import { WorkerCreateComponent } from './pages/workers/worker-create/worker-create.component';
 import { RoomsPageComponent } from './pages/rooms/rooms-page/rooms-page.component';
 import { RoomDetailComponent } from './pages/rooms/room-detail/room-detail.component';
 import { RoomCreateComponent } from './pages/rooms/room-create/room-create.component';
+import { StudentDetailComponent } from './pages/students/student-detail/student-detail.component';
+import { StudentCreateComponent } from './pages/students/student-create/student-create.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -34,18 +34,18 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HeaderComponent,
     MainPageComponent,
-    DetailPageComponent,
     NotFoundComponent,
     LoginPageComponent,
     SearchPipe,
-    AddPageComponent,
     StudentsPageComponent,
     WorkersPageComponent,
     WorkerDetailComponent,
     WorkerCreateComponent,
     RoomsPageComponent,
     RoomDetailComponent,
-    RoomCreateComponent
+    RoomCreateComponent,
+    StudentDetailComponent,
+    StudentCreateComponent
   ],
   imports: [
     TranslateModule.forRoot({

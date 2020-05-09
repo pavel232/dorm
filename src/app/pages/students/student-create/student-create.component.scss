@@ -7,7 +7,7 @@
 }
 
 .wrapper {
-  min-width: 400px;
+  min-width: 510px;
 }
 
 .inputs-container {
@@ -17,10 +17,26 @@
   align-items: center;
 }
 
-.create-worker {
+.student-information {
+  width: 100%;
   display: flex;
+  justify-content: space-between;
+}
+
+.element {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin: 10px 0;
+  padding: 5px;
+}
+
+.provision-input {
+  width: 80px;
+}
+
+.login {
+  width: 350px;
 }
 
 .separator {
@@ -42,5 +58,8 @@
 
   &:hover {
     background-color: lighten(yellowgreen, 15%);
+  }
+  &:disabled {
+    background-color: grey;
   }
 }

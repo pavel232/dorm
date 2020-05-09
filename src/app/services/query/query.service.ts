@@ -28,7 +28,7 @@ export class QueryService {
       .subscribe(
         (resp: any) => {
           if (type === 'student') {
-            provisionData.ID = resp.id;
+            provisionData.ID = resp.ID;
             this.createProvision(provisionData, token);
           }
           this.notifierService.notify('success', `New ${type} successfully created!`);

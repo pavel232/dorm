@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Student } from 'src/app/models/student.model';
 import { QueryService } from 'src/app/services/query/query.service';
-import { User } from 'src/app/models/user.model';
 import { NotifierService } from 'angular-notifier';
+import { User } from 'src/app/models/user.model';
+import { Student } from 'src/app/models/student.model';
 import { Provision } from 'src/app/models/provision.model';
 
 @Component({
-  selector: 'app-detail-page',
-  templateUrl: './detail-page.component.html',
-  styleUrls: ['./detail-page.component.scss']
+  selector: 'app-student-detail',
+  templateUrl: './student-detail.component.html',
+  styleUrls: ['./student-detail.component.scss']
 })
-export class DetailPageComponent implements OnInit {
+export class StudentDetailComponent implements OnInit {
   public student: Student = {
     ID: 0,
     Date: '',

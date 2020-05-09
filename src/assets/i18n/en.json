@@ -28,7 +28,24 @@
     "search_label": "Search",
     "search_placeholder": "Search",
     "empty": "List is empty...",
-    "add_new": "Add new student"
+    "add_new": "Add new student",
+    "detail": {},
+    "create": {
+      "title": "Create new student",
+      "information": "Main information",
+      "provision": "Student provision",
+      "username": "Username",
+      "password": "Password",
+      "first": "First name",
+      "last": "Last name",
+      "floor": "Floor",
+      "room": "Room",
+      "bedsheet": "Bedhseet",
+      "pillow": "Pillows",
+      "towel": "Towels",
+      "blanket": "Blankets",
+      "curtain": "Curtains"
+    }
   },
   "detail_page": {
     "title": "Student detail",
