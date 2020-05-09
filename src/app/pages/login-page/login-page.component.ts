@@ -9,34 +9,35 @@ import { NotifierService } from 'angular-notifier';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-  public login = '';
-  public password = '';
   public isConfirm = true;
+  public user: Login = {
+    username: '',
+    password: ''
+  };
 
   constructor(private loginService: LoginService, private notifierService: NotifierService) {}
 
   ngOnInit() {}
 
   public onSubmit(): void {
-    const data: Login = {
-      username: this.login,
-      password: this.password
-    };
-
-    if (!this.login || !this.password) {
+    if (!this.user.username || !this.user.password) {
       this.isConfirm = false;
       this.notifierService.notify('warning', 'Fields cannot be empty!');
     } else {
-      this.loginService.logIn(data);
+      this.loginService.logIn(this.user);
     }
+  }
+
+  public loginGuest() {
+    this.loginService.loginGuest();
   }
 
   public changeInput(type: string, value: any): void {
     this.isConfirm = true;
     if (type === 'login') {
-      this.login = value;
+      this.user.username = value;
     } else if (type === 'password') {
-      this.password = value;
+      this.user.password = value;
     }
   }
 }

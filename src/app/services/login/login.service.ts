@@ -54,6 +54,22 @@ export class LoginService {
     );
   }
 
+  public loginGuest(): void {
+    const user: User = {
+      login: 'Guest',
+      message: '',
+      rights: false,
+      role: 'guest',
+      token: '',
+      uuid: null
+    };
+    localStorage.setItem('User', JSON.stringify(user));
+    if (this.checkUser()) {
+      this.router.navigateByUrl('/main');
+      this.notifierService.notify('success', `User: '${user.login}' is logged in!`);
+    }
+  }
+
   public logout(): void {
     localStorage.removeItem('User');
     this.isLogin.emit(false);

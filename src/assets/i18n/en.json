@@ -10,7 +10,8 @@
     },
     "button": {
       "login": "Login",
-      "logout": "logout"
+      "logout": "logout",
+      "guest": "Login as Guest"
     },
     "error": "Fields cannot be empty!",
     "title": "Sign In"
