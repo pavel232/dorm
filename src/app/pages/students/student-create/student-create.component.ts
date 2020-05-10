@@ -59,7 +59,7 @@ export class StudentCreateComponent implements OnInit {
         this.queryService.createSubject('student', this.student, this.token, this.provision);
       },
       err => {
-        this.notifierService.notify('error', err.error.message);
+        this.notifierService.notify('error', err.error.Message);
         console.error('Error: ', err.error);
       }
     );

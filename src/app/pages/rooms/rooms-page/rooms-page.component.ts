@@ -30,7 +30,7 @@ export class RoomsPageComponent implements OnInit {
         this.roomsList = resp;
       },
       err => {
-        this.notifierService.notify('error', err.error.message);
+        this.notifierService.notify('error', err.error.Message);
         console.error('Error: ', err.error);
       }
     );

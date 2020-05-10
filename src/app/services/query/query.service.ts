@@ -28,6 +28,7 @@ export class QueryService {
       .subscribe(
         (resp: any) => {
           if (type === 'student') {
+            console.log(resp);
             provisionData.ID = resp.ID;
             this.createProvision(provisionData, token);
           }
