@@ -4,6 +4,11 @@
   <p class="worker-name">{{worker.FirstName}} {{worker.LastName}}</p>
 
   <div class="element">
+    {{'workers_page.detail.id' | translate}}:
+    <span>{{worker.ID}}</span>
+  </div>
+
+  <div class="element">
     {{'workers_page.create.first' | translate}}:
     <input class="input-field" [disabled]="!rights" [(ngModel)]="worker.FirstName">
   </div>
@@ -13,7 +18,7 @@
   </div>
   <div class="element">
     {{'workers_page.create.floor' | translate}}:
-    <input class="input-field" [disabled]="!rights" [(ngModel)]="worker.WorkFloor.Floor.Floor">
+    <input class="input-field" [disabled]="!rights" type="number" [(ngModel)]="worker.WorkFloor.Floor.Floor">
   </div>
   <div class="element">
     {{'workers_page.create.work_days' | translate}}:

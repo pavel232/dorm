@@ -17,8 +17,8 @@ export class WorkerCreateComponent implements OnInit {
     WorkDays: '',
     WorkFloor: {
       Floor: {
-        Floor: 1,
-        Code: 1
+        Floor: null,
+        Code: null
       }
     }
   };

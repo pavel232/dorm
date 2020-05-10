@@ -30,7 +30,24 @@
     "search_placeholder": "Search",
     "empty": "List is empty...",
     "add_new": "Add new student",
-    "detail": {},
+    "detail": {
+      "title": "Create new student",
+      "you": "You",
+      "id": "Student id",
+      "date": "Registration date",
+      "fname": "First name",
+      "lname": "Last name",
+      "floor": "Floor",
+      "room": "Room",
+      "provisions": {
+        "title": "Student provisions",
+        "bedhseet": "Bedhseet",
+        "pillow": "Pillows",
+        "towel": "Towels",
+        "blanket": "Blankets",
+        "curtain": "Curtains"
+      }
+    },
     "create": {
       "title": "Create new student",
       "information": "Main information",
@@ -48,43 +65,6 @@
       "curtain": "Curtains"
     }
   },
-  "detail_page": {
-    "title": "Student detail",
-    "you": "You",
-    "id": "Student id",
-    "date": "Registration date",
-    "fname": "First name",
-    "lname": "Last name",
-    "floor": "Floor",
-    "room": "Room",
-    "provisions": {
-      "title": "Student provisions",
-      "bedhseet": "Bedhseet",
-      "pillow": "Pillows",
-      "towel": "Towels",
-      "blanket": "Blankets",
-      "curtain": "Curtains"
-    },
-    "button": {
-      "delete": "Delete",
-      "update": "Update info",
-      "back": "Back"
-    }
-  },
-  "add_page": {
-    "button": {
-      "back": "Back",
-      "create": "Create"
-    },
-    "title": "Create new student",
-    "username": "Username",
-    "password": "Password",
-    "first": "First name",
-    "last": "Last name",
-    "floor": "Floor",
-    "room": "Room",
-    "worker": "Create worker"
-  },
   "workers_page": {
     "title": "Workers",
     "search_label": "Search",
@@ -92,7 +72,8 @@
     "empty": "List is empty...",
     "add_new": "Add new worker",
     "detail": {
-      "title": "Worker detail"
+      "title": "Worker detail",
+      "id": "Worker id"
     },
     "create": {
       "title": "Create new worker",
@@ -118,7 +99,8 @@
     "search_placeholder": "Search",
     "empty": "List is empty...",
     "detail": {
-      "title": "Room detail"
+      "title": "Room detail",
+      "id": "Room id"
     },
     "create": {
       "title": "Create new room",
@@ -126,6 +108,19 @@
       "chairs": "Chairs",
       "tables": "Tables",
       "shelves": "Shelves"
+    }
+  },
+  "detail_page": {
+    "button": {
+      "delete": "Delete",
+      "update": "Update info",
+      "back": "Back"
+    }
+  },
+  "add_page": {
+    "button": {
+      "back": "Back",
+      "create": "Create"
     }
   }
 }

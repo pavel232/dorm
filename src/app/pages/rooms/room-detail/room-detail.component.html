@@ -2,20 +2,25 @@
   <h3>{{'rooms_page.detail.title' | translate}}</h3>
 
   <div class="element">
+    {{'rooms_page.detail.id' | translate}}:
+    <span>{{room.ID}}</span>
+  </div>
+
+  <div class="element">
     {{'rooms_page.create.room' | translate}}:
-    <input class="input-field" [disabled]="!rights" [(ngModel)]="room.Room">
+    <input class="input-field" [disabled]="!rights" type="number" [(ngModel)]="room.Room">
   </div>
   <div class="element">
     {{'rooms_page.create.chairs' | translate}}:
-    <input class="input-field" [disabled]="!rights" [(ngModel)]="room.Chairs">
+    <input class="input-field" [disabled]="!rights" type="number" [(ngModel)]="room.Chairs">
   </div>
   <div class="element">
     {{'rooms_page.create.tables' | translate}}:
-    <input class="input-field" [disabled]="!rights" [(ngModel)]="room.Tables">
+    <input class="input-field" [disabled]="!rights" type="number" [(ngModel)]="room.Tables">
   </div>
   <div class="element">
     {{'rooms_page.create.shelves' | translate}}:
-    <input class="input-field" [disabled]="!rights" [(ngModel)]="room.Shelves">
+    <input class="input-field" [disabled]="!rights" type="number" [(ngModel)]="room.Shelves">
   </div>
 
   <div class="buttons">

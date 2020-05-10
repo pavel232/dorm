@@ -53,7 +53,7 @@ export class StudentDetailComponent implements OnInit {
         this.student = data;
       },
       err => {
-        this.notifierService.notify('error', err.error.message);
+        this.notifierService.notify('error', err.error.Message);
         console.error('Error: ', err.error);
       }
     );
@@ -63,7 +63,7 @@ export class StudentDetailComponent implements OnInit {
         this.provision = data;
       },
       err => {
-        this.notifierService.notify('error', err.error.message);
+        this.notifierService.notify('error', err.error.Message);
         console.error('Error: ', err.error);
       }
     );
